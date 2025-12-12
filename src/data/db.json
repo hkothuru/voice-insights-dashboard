@@ -1,0 +1,58 @@
+[
+  {
+    "id": "call_1765556279511",
+    "timestamp": "2025-12-12T16:17:59.511Z",
+    "duration_seconds": 0,
+    "transcript": "Seller: હાલો. Buyer: હમ. Seller: વાઇન કલરની ટ્રાવેલ બેગ મળી જાય વાઇન કલરના. Seller: કલર તો જ નહીં મળે કેટલી જોતી છે? Buyer: મારે જોતા છે 25-30. Buyer: ઓન્લી વાઇન કલર. Seller: હમ. Seller: મને ફોટો મોકલો ને કે વાઇન કલર કોને કહેવાય તમારે. Buyer: ઓકે આ નંબર પર જ મોકલું? Seller: ના રાખી દયો આમાં નહીં હું તમને મળે નંબર મારો. Buyer: ઓકે લાવો બોલો. Seller: 800. Buyer: એક મિનિટ એક મિનિટ. Buyer: 8400. Seller: 8200. Buyer: ઓકે 8200. Seller: 9089. Buyer: 9089. Seller: 71. Buyer: 71 ઓકે હાલો હું ફોટો મોકલું છું. Seller: હમ.",
+    "analysis": {
+      "category": "Textiles",
+      "deal_status": "Follow-up",
+      "objection_type": "None",
+      "buyer_intent_score": 8,
+      "missing_specs": [
+        "Specific shade of 'wine color'"
+      ],
+      "summary": "The buyer is looking for 25-30 travel bags exclusively in 'wine color'. The seller is unsure about the specific shade of wine color and has asked the buyer to send a photo for clarification, providing their contact number for this purpose.",
+      "seller_id": "Unknown",
+      "buyer_id": "Unknown",
+      "product": "Travel bags",
+      "price_discussion": {
+        "final_price": "Not discussed",
+        "currency": "INR"
+      },
+      "language_analysis": {
+        "primary_language": "Gujarati",
+        "language_barriers": "None",
+        "translation_needed": "No"
+      },
+      "responsiveness_analysis": {
+        "background_noise_level": "none",
+        "call_quality_issues": [],
+        "seller_tone": "engaging",
+        "response_delays": "no notable delays",
+        "call_engagement": "moderately_engaged"
+      },
+      "demand_gap_analysis": {
+        "unmet_requirements": [
+          "Exact shade of 'wine color' travel bags"
+        ],
+        "market_gaps_identified": [
+          "Potential for a wider range of specific color shades for travel bags"
+        ],
+        "buyer_suggestions": [],
+        "competitive_advantages_needed": [
+          "Ability to match specific color requests or provide a clear color palette/swatches to buyers."
+        ]
+      },
+      "negotiation_dynamics": {
+        "negotiation_present": false,
+        "negotiation_intensity": "none",
+        "buyer_behavior": "questioning",
+        "seller_flexibility": "medium",
+        "discount_requested_percent": 0,
+        "discount_offered_percent": 0,
+        "negotiation_outcome": "stalemate"
+      }
+    }
+  }
+]
