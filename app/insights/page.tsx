@@ -23,7 +23,8 @@ import {
   Globe,
   Clock,
   Filter,
-  Users
+  Users,
+  UserX
 } from 'lucide-react';
 import {
   BarChart,
