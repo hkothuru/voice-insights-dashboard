@@ -14,6 +14,12 @@ pnpm dev
 bun dev
 ```
 
+**"The application is hosted on the local system and is accessible via the network at the following addresses:"**
+
+**Local: http://localhost:3000**
+
+**Network: http://192.168.30.63:3000**
+==========================================================================================================================================
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
