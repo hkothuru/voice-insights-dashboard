@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 import os from "os";
 
-const API_KEY = "sk-JzabVFUVGx_0Cs768A4PDQ";
+const API_KEY = "sk-oQBR8Mga9jw01QWsxukKBw";
 const BASE_URL = "https://imllm.intermesh.net/v1/chat/completions";
 const MODEL_NAME = "google/gemini-2.5-flash";
 
@@ -12,6 +12,17 @@ export async function POST(req: NextRequest) {
         const formData = await req.formData();
         const file = formData.get("file") as File;
         const url = formData.get("url") as string;
+        const metadataString = formData.get("metadata") as string;
+
+        // Parse metadata if provided
+        let metadata: Record<string, any> = {};
+        if (metadataString) {
+            try {
+                metadata = JSON.parse(metadataString);
+            } catch (e) {
+                console.warn("Failed to parse metadata:", e);
+            }
+        }
 
         let buffer: Buffer;
         let mimeType: string;
@@ -100,7 +111,12 @@ Output ONLY valid JSON with this exact schema:
             messages: [
                 {
                     role: "user",
-                    content: `Analyze this call transcript and extract comprehensive business intelligence. Focus on these 5 strategic insights:
+                    content: [
+                        {
+                            type: "text",
+                            text: `Analyze this call recording AND the provided transcript to extract comprehensive business intelligence. 
+You MUST listen to the audio to determine "seller_tone", "background_noise", and "engagement".
+Use the transcript for extraction of specific facts, prices, and specs.
 
 TRANSCRIPT:
 ${transcript}
@@ -108,6 +124,7 @@ ${transcript}
 Output ONLY valid JSON with this exact schema:
 {
     "transcript": "${transcript.replace(/"/g, '\\"')}",
+    "call_duration_seconds": 120,
     "analysis": {
         "category": "Product category (e.g., Electronics, Textiles, Machinery)",
         "deal_status": "Current status (Closed, Follow-up, Dropped, etc.)",
@@ -128,9 +145,9 @@ Output ONLY valid JSON with this exact schema:
         },
 
         "responsiveness_analysis": {
-            "background_noise_level": "none/low/medium/high",
+            "background_noise_level": "none/low/medium/high (Listen to audio)",
             "call_quality_issues": ["List any quality issues: noise, interruptions, poor connection"],
-            "seller_tone": "professional/casual/rude/sleepy/engaging",
+            "seller_tone": "professional/casual/rude/sleepy/engaging (Listen to audio)",
             "response_delays": "any notable delays in responses",
             "call_engagement": "highly_engaged/moderately_engaged/low_engagement"
         },
@@ -153,6 +170,14 @@ Output ONLY valid JSON with this exact schema:
         }
     }
 }`
+                        },
+                        {
+                            type: "image_url",
+                            image_url: {
+                                url: `data:${mimeType};base64,${base64Audio}`
+                            }
+                        }
+                    ]
                 }
             ],
             temperature: 0.2
@@ -197,10 +222,13 @@ Output ONLY valid JSON with this exact schema:
         // Save to DB
         const newCall = {
             id: `call_${Date.now()}`,
+            filename: fileName,
             timestamp: new Date().toISOString(),
-            duration_seconds: 0, // We assume 0 or could estimate from file size
+            duration_seconds: parsedData.call_duration_seconds || Math.ceil(buffer.length * 8 / 128000), // Use LLM extracted duration or fallback
             transcript: parsedData.transcript,
-            analysis: parsedData.analysis
+            analysis: parsedData.analysis,
+            // Add CSV metadata if available
+            ...(Object.keys(metadata).length > 0 && { csv_metadata: metadata })
         };
 
 

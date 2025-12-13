@@ -4,27 +4,22 @@ import { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Link from 'next/link';
 import {
-  Search,
   BarChart3,
-  MapPin,
-  Clock,
-  Users,
-  TrendingUp,
   Phone,
-  Globe,
-  Building,
+  Users,
   Timer,
-  Eye,
+  ArrowLeft,
+  TrendingUp,
   Filter,
-  ChevronDown,
-  ChevronUp,
-  PlayCircle,
-  Download
+  Eye,
+  Download,
+  Building,
+  Clock
 } from 'lucide-react';
 import {
   BarChart,
@@ -36,73 +31,75 @@ import {
   ResponsiveContainer,
   PieChart,
   Pie,
-  Cell,
-  LineChart,
-  Line,
-  Area,
-  AreaChart
+  Cell
 } from 'recharts';
-interface CategoryStats {
-  categoryName: string;
-  categoryId: string;
+
+interface CategoryData {
+  category: string;
   totalCalls: number;
-  totalDuration: number;
-  averageDuration: number;
-  uniqueBuyers: number;
-  uniqueSellers: number;
-  topCities: Array<{ city: string; count: number }>;
-  topStates: Array<{ state: string; count: number }>;
-  callSourceBreakdown: Record<string, number>;
-  customerTypeBreakdown: Record<string, number>;
-  avgSellerVintage: number;
-  timeDistribution: {
-    morning: number;
-    afternoon: number;
-    evening: number;
-    night: number;
-  };
-  sampleRecords: any[];
+  avgDuration: number;
+  avgIntentScore: number;
+  followUpRate: number;
 }
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8', '#82ca9d', '#ffc658'];
+const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899'];
 
 export default function CategoriesPage() {
-  const [categories, setCategories] = useState<CategoryStats[]>([]);
-  const [filteredCategories, setFilteredCategories] = useState<CategoryStats[]>([]);
-  const [overallStats, setOverallStats] = useState<any>(null);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<CategoryStats | null>(null);
+  const [categories, setCategories] = useState<CategoryData[]>([]);
+  const [calls, setCalls] = useState<any[]>([]);
+  const [totalCalls, setTotalCalls] = useState(0);
+  const [loading, setLoading] = useState(true);
   const [categoryToggles, setCategoryToggles] = useState<Record<string, boolean>>({});
   const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set());
-  const [loading, setLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState<CategoryData | null>(null);
 
   useEffect(() => {
     const loadData = async () => {
       try {
-        const [categoriesRes, overviewRes] = await Promise.all([
-          fetch('/api/dataset?type=categories&limit=100'),
-          fetch('/api/dataset?type=overview')
-        ]);
+        const response = await fetch('/api/calls');
+        if (!response.ok) throw new Error('Failed to fetch calls');
 
-        if (!categoriesRes.ok || !overviewRes.ok) {
-          throw new Error('Failed to fetch data');
-        }
+        const callsData = await response.json();
+        setCalls(callsData);
+        setTotalCalls(callsData.length);
 
-        const categoriesData = await categoriesRes.json();
-        const overviewData = await overviewRes.json();
+        // Group by category
+        const categoryMap = new Map<string, any[]>();
+        callsData.forEach((call: any) => {
+          const cat = call.analysis?.category || 'Uncategorized';
+          if (!categoryMap.has(cat)) {
+            categoryMap.set(cat, []);
+          }
+          categoryMap.get(cat)!.push(call);
+        });
 
-        setCategories(categoriesData);
-        setFilteredCategories(categoriesData.slice(0, 50)); // Show top 50 initially
+        // Calculate stats for each category
+        const categoryStats: CategoryData[] = Array.from(categoryMap.entries()).map(([category, categoryCalls]) => {
+          const totalDuration = categoryCalls.reduce((sum, call) => sum + (call.duration_seconds || 0), 0);
+          const totalIntent = categoryCalls.reduce((sum, call) => sum + (call.analysis?.buyer_intent_score || 0), 0);
+          const followUpCalls = categoryCalls.filter(call =>
+            call.analysis?.deal_status?.toLowerCase().includes('follow')
+          ).length;
 
-        // Initialize toggles for top categories
+          return {
+            category,
+            totalCalls: categoryCalls.length,
+            avgDuration: Math.round(totalDuration / categoryCalls.length),
+            avgIntentScore: Math.round((totalIntent / categoryCalls.length) * 10) / 10,
+            followUpRate: Math.round((followUpCalls / categoryCalls.length) * 100)
+          };
+        });
+
+        // Sort by total calls descending
+        categoryStats.sort((a, b) => b.totalCalls - a.totalCalls);
+        setCategories(categoryStats);
+
+        // Initialize toggles for all categories
         const initialToggles: Record<string, boolean> = {};
-        categoriesData.slice(0, 20).forEach((cat: CategoryStats) => {
-          initialToggles[`${cat.categoryName}_${cat.categoryId}`] = true;
+        categoryStats.forEach((cat) => {
+          initialToggles[cat.category] = true;
         });
         setCategoryToggles(initialToggles);
-
-        // Set overall stats
-        setOverallStats(overviewData);
       } catch (error) {
         console.error('Error loading categories:', error);
       } finally {
@@ -112,27 +109,6 @@ export default function CategoriesPage() {
 
     loadData();
   }, []);
-
-  useEffect(() => {
-    const performSearch = async () => {
-      if (searchQuery.trim() === '') {
-        setFilteredCategories(categories.slice(0, 50));
-      } else {
-        try {
-          const response = await fetch(`/api/dataset?type=search&q=${encodeURIComponent(searchQuery)}`);
-          if (response.ok) {
-            const searchResults = await response.json();
-            setFilteredCategories(searchResults);
-          }
-        } catch (error) {
-          console.error('Search error:', error);
-          setFilteredCategories([]);
-        }
-      }
-    };
-
-    performSearch();
-  }, [searchQuery, categories]);
 
   const toggleCategoryExpansion = (categoryKey: string) => {
     const newExpanded = new Set(expandedCards);
@@ -157,21 +133,14 @@ export default function CategoriesPage() {
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
-  // overallStats is now loaded from API in useEffect
-
   if (loading) {
     return (
       <div className="p-8">
         <div className="animate-pulse space-y-6">
           <div className="h-8 bg-gray-200 rounded w-1/4"></div>
           <div className="grid grid-cols-4 gap-4">
-            {[1,2,3,4].map(i => (
+            {[1, 2, 3, 4].map(i => (
               <div key={i} className="h-24 bg-gray-200 rounded"></div>
-            ))}
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[1,2].map(i => (
-              <div key={i} className="h-64 bg-gray-200 rounded"></div>
             ))}
           </div>
         </div>
@@ -183,63 +152,65 @@ export default function CategoriesPage() {
     <div className="space-y-8 p-8">
       {/* Header */}
       <div className="space-y-4">
+        <Link href="/dashboard">
+          <Button variant="ghost" size="sm" className="mb-4">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Dashboard
+          </Button>
+        </Link>
+
         <div>
-          <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-            Category Intelligence Dashboard
+          <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+            Category Analysis
           </h1>
           <p className="text-xl text-muted-foreground mt-2">
-            Deep insights into {overallStats ? overallStats.totalCalls.toLocaleString() : '0'} buyer-seller conversations across {overallStats ? overallStats.totalCategories : '0'} product categories
+            Insights from {totalCalls} calls across {categories.length} categories
           </p>
+          <div className="flex gap-2 mt-3">
+            <Badge variant="default">Live Data</Badge>
+            <Link href="/demo-categories">
+              <Badge variant="outline" className="cursor-pointer hover:bg-gray-100">
+                View Demo Data →
+              </Badge>
+            </Link>
+          </div>
         </div>
 
-        {/* Search and Controls */}
-        <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
-          <div className="relative flex-1 max-w-md">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-            <Input
-              placeholder="Search categories..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10"
+        {/* Controls */}
+        <div className="flex items-center gap-4">
+          <div className="flex items-center space-x-2">
+            <Switch
+              id="show-all"
+              checked={Object.values(categoryToggles).some(v => v)}
+              onCheckedChange={(checked) => {
+                const newToggles: Record<string, boolean> = {};
+                categories.forEach(cat => {
+                  newToggles[cat.category] = checked;
+                });
+                setCategoryToggles(newToggles);
+              }}
             />
+            <Label htmlFor="show-all" className="text-sm">Show All Categories</Label>
           </div>
-
-          <div className="flex items-center gap-4">
-            <div className="flex items-center space-x-2">
-              <Switch
-                id="show-all"
-                checked={Object.values(categoryToggles).some(v => v)}
-                onCheckedChange={(checked) => {
-                  const newToggles: Record<string, boolean> = {};
-                  filteredCategories.forEach(cat => {
-                    newToggles[`${cat.categoryName}_${cat.categoryId}`] = checked;
-                  });
-                  setCategoryToggles(newToggles);
-                }}
-              />
-              <Label htmlFor="show-all" className="text-sm">Show All Categories</Label>
-            </div>
-            <Button variant="outline" size="sm">
-              <Download className="w-4 h-4 mr-2" />
-              Export Data
-            </Button>
-          </div>
+          <Button variant="outline" size="sm">
+            <Download className="w-4 h-4 mr-2" />
+            Export Data
+          </Button>
         </div>
       </div>
 
       {/* Overall Stats */}
-      {overallStats && (
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          <Card className="border-blue-200 bg-blue-50/50">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-blue-700">Total Calls</CardTitle>
-              <Phone className="h-4 w-4 text-blue-600" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-blue-900">{overallStats.totalCalls.toLocaleString()}</div>
-              <p className="text-xs text-blue-600">Across all categories</p>
-            </CardContent>
-          </Card>
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <Card className="border-blue-200 bg-blue-50/50">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-blue-700">Total Calls</CardTitle>
+            <Phone className="h-4 w-4 text-blue-600" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold text-blue-900">{totalCalls}</div>
+            <p className="text-xs text-blue-600">Across all categories</p>
+          </CardContent>
+        </Card>
 
         <Card className="border-green-200 bg-green-50/50">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -247,55 +218,64 @@ export default function CategoriesPage() {
             <BarChart3 className="h-4 w-4 text-green-600" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-green-900">{overallStats.totalCategories}</div>
+            <div className="text-2xl font-bold text-green-900">{categories.length}</div>
             <p className="text-xs text-green-600">Product categories</p>
           </CardContent>
         </Card>
 
         <Card className="border-purple-200 bg-purple-50/50">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-purple-700">Avg Duration</CardTitle>
-            <Timer className="h-4 w-4 text-purple-600" />
+            <CardTitle className="text-sm font-medium text-purple-700">Avg Intent</CardTitle>
+            <TrendingUp className="h-4 w-4 text-purple-600" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-purple-900">{formatDuration(overallStats.avgDuration)}</div>
-            <p className="text-xs text-purple-600">Per conversation</p>
+            <div className="text-2xl font-bold text-purple-900">
+              {categories.length > 0
+                ? (categories.reduce((sum, cat) => sum + cat.avgIntentScore, 0) / categories.length).toFixed(1)
+                : '0'
+              }/10
+            </div>
+            <p className="text-xs text-purple-600">Average buyer intent</p>
           </CardContent>
         </Card>
 
         <Card className="border-orange-200 bg-orange-50/50">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-orange-700">Active Users</CardTitle>
+            <CardTitle className="text-sm font-medium text-orange-700">Follow-up Rate</CardTitle>
             <Users className="h-4 w-4 text-orange-600" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-orange-900">{(overallStats.uniqueBuyers + overallStats.uniqueSellers).toLocaleString()}</div>
-            <p className="text-xs text-orange-600">Buyers + Sellers</p>
+            <div className="text-2xl font-bold text-orange-900">
+              {categories.length > 0
+                ? Math.round(categories.reduce((sum, cat) => sum + cat.followUpRate, 0) / categories.length)
+                : 0
+              }%
+            </div>
+            <p className="text-xs text-orange-600">Average across categories</p>
           </CardContent>
         </Card>
       </div>
-      )}
 
-      {/* Category Distribution Overview */}
+      {/* Charts */}
       <div className="grid gap-6 md:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>Top Categories by Call Volume</CardTitle>
-            <CardDescription>Most active product categories in the dataset</CardDescription>
+            <CardTitle>Call Volume by Category</CardTitle>
+            <CardDescription>Number of calls per category</CardDescription>
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={filteredCategories.slice(0, 10)}>
+              <BarChart data={categories}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis
-                  dataKey="categoryName"
+                  dataKey="category"
                   angle={-45}
                   textAnchor="end"
-                  height={80}
+                  height={100}
                   fontSize={11}
                 />
                 <YAxis />
-                <Tooltip formatter={(value) => [`${value} calls`, 'Volume']} />
+                <Tooltip />
                 <Bar dataKey="totalCalls" fill="#3b82f6" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -304,53 +284,33 @@ export default function CategoriesPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Geographic Distribution</CardTitle>
-            <CardDescription>Call distribution across Indian states</CardDescription>
+            <CardTitle>Category Distribution</CardTitle>
+            <CardDescription>Percentage of calls by category</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-3">
-              {Array.from(
-                new Map(
-                  filteredCategories
-                    .flatMap(cat => cat.topStates)
-                    .reduce((acc, state) => {
-                      acc.set(state.state, (acc.get(state.state) || 0) + state.count);
-                      return acc;
-                    }, new Map<string, number>())
-                )
-              )
-                .sort(([, a], [, b]) => b - a)
-                .slice(0, 8)
-                .map(([state, count]) => (
-                  <div key={state} className="flex items-center justify-between">
-                    <span className="text-sm font-medium">{state}</span>
-                    <div className="flex items-center gap-2">
-                      <div className="w-16 bg-gray-200 rounded-full h-2">
-                        <div
-                          className="bg-blue-600 h-2 rounded-full"
-                          style={{
-                            width: `${(count / Math.max(...Array.from(new Map(
-                              filteredCategories.flatMap(cat => cat.topStates)
-                                .reduce((acc, state) => {
-                                  acc.set(state.state, (acc.get(state.state) || 0) + state.count);
-                                  return acc;
-                                }, new Map<string, number>())
-                            ).values()))) * 100}%`
-                          }}
-                        />
-                      </div>
-                      <span className="text-sm text-muted-foreground w-12 text-right">
-                        {count.toLocaleString()}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-            </div>
+            <ResponsiveContainer width="100%" height={300}>
+              <PieChart>
+                <Pie
+                  data={categories}
+                  dataKey="totalCalls"
+                  nameKey="category"
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={80}
+                  label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                >
+                  {categories.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  ))}
+                </Pie>
+                <Tooltip />
+              </PieChart>
+            </ResponsiveContainer>
           </CardContent>
         </Card>
       </div>
 
-      {/* Category Toggle Grid */}
+      {/* Category Control Panel */}
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -363,16 +323,16 @@ export default function CategoriesPage() {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {filteredCategories.map((category) => {
-              const categoryKey = `${category.categoryName}_${category.categoryId}`;
+            {categories.map((category) => {
+              const categoryKey = category.category;
               const isVisible = categoryToggles[categoryKey];
 
               return (
                 <div key={categoryKey} className="space-y-3">
                   <div className="flex items-center justify-between p-3 border rounded-lg hover:bg-gray-50 transition-colors">
                     <div className="flex-1 min-w-0">
-                      <h4 className="font-medium text-sm truncate" title={category.categoryName}>
-                        {category.categoryName}
+                      <h4 className="font-medium text-sm truncate" title={category.category}>
+                        {category.category}
                       </h4>
                       <p className="text-xs text-muted-foreground">
                         {category.totalCalls} calls
@@ -382,7 +342,6 @@ export default function CategoriesPage() {
                       <Switch
                         checked={isVisible || false}
                         onCheckedChange={() => toggleCategoryVisibility(categoryKey)}
-                        size="sm"
                       />
                       <Button
                         variant="ghost"
@@ -403,73 +362,20 @@ export default function CategoriesPage() {
                       <CardContent className="p-4 space-y-4">
                         <div className="grid grid-cols-2 gap-4 text-sm">
                           <div>
-                            <span className="text-muted-foreground">Duration:</span>
-                            <div className="font-medium">{formatDuration(category.averageDuration)}</div>
+                            <span className="text-muted-foreground">Avg Duration:</span>
+                            <div className="font-medium">{formatDuration(category.avgDuration)}</div>
                           </div>
                           <div>
-                            <span className="text-muted-foreground">Sellers:</span>
-                            <div className="font-medium">{category.uniqueSellers}</div>
+                            <span className="text-muted-foreground">Avg Intent:</span>
+                            <div className="font-medium">{category.avgIntentScore}/10</div>
                           </div>
                           <div>
-                            <span className="text-muted-foreground">Buyers:</span>
-                            <div className="font-medium">{category.uniqueBuyers}</div>
+                            <span className="text-muted-foreground">Total Calls:</span>
+                            <div className="font-medium">{category.totalCalls}</div>
                           </div>
                           <div>
-                            <span className="text-muted-foreground">Seller Age:</span>
-                            <div className="font-medium">{category.avgSellerVintage} days</div>
-                          </div>
-                        </div>
-
-                        {/* Top Cities */}
-                        <div>
-                          <h5 className="font-medium text-sm mb-2">Top Cities</h5>
-                          <div className="flex flex-wrap gap-1">
-                            {category.topCities.slice(0, 3).map((city, idx) => (
-                              <Badge key={idx} variant="secondary" className="text-xs">
-                                {city.city} ({city.count})
-                              </Badge>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Time Distribution */}
-                        <div>
-                          <h5 className="font-medium text-sm mb-2">Call Timing</h5>
-                          <div className="grid grid-cols-4 gap-2 text-xs">
-                            <div className="text-center">
-                              <div className="font-medium">{category.timeDistribution.morning}</div>
-                              <div className="text-muted-foreground">Morning</div>
-                            </div>
-                            <div className="text-center">
-                              <div className="font-medium">{category.timeDistribution.afternoon}</div>
-                              <div className="text-muted-foreground">Afternoon</div>
-                            </div>
-                            <div className="text-center">
-                              <div className="font-medium">{category.timeDistribution.evening}</div>
-                              <div className="text-muted-foreground">Evening</div>
-                            </div>
-                            <div className="text-center">
-                              <div className="font-medium">{category.timeDistribution.night}</div>
-                              <div className="text-muted-foreground">Night</div>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Sample Records */}
-                        <div>
-                          <h5 className="font-medium text-sm mb-2">Sample Conversations</h5>
-                          <div className="space-y-2 max-h-32 overflow-y-auto">
-                            {category.sampleRecords.slice(0, 2).map((record, idx) => (
-                              <div key={idx} className="p-2 bg-gray-50 rounded text-xs">
-                                <div className="flex justify-between items-start mb-1">
-                                  <span className="font-medium">{record.city_name}, {record.state_name}</span>
-                                  <span className="text-muted-foreground">{formatDuration(record.call_duration)}</span>
-                                </div>
-                                <div className="text-muted-foreground truncate">
-                                  {record.pns_call_modrefname}
-                                </div>
-                              </div>
-                            ))}
+                            <span className="text-muted-foreground">Follow-up Rate:</span>
+                            <div className="font-medium">{category.followUpRate}%</div>
                           </div>
                         </div>
                       </CardContent>
@@ -489,7 +395,7 @@ export default function CategoriesPage() {
             <CardTitle className="flex items-center justify-between">
               <span className="flex items-center gap-2">
                 <Building className="w-5 h-5 text-indigo-600" />
-                {selectedCategory.categoryName} Deep Analysis
+                {selectedCategory.category} Deep Analysis
               </span>
               <Badge variant="outline" className="text-indigo-700 border-indigo-300">
                 {selectedCategory.totalCalls} conversations
@@ -516,8 +422,8 @@ export default function CategoriesPage() {
                         <Users className="w-4 h-4 text-blue-600" />
                         <span className="text-sm font-medium">Market Size</span>
                       </div>
-                      <div className="text-2xl font-bold">{selectedCategory.uniqueSellers}</div>
-                      <div className="text-xs text-muted-foreground">Active sellers</div>
+                      <div className="text-2xl font-bold">{selectedCategory.totalCalls}</div>
+                      <div className="text-xs text-muted-foreground">Total calls</div>
                     </CardContent>
                   </Card>
 
@@ -527,8 +433,8 @@ export default function CategoriesPage() {
                         <TrendingUp className="w-4 h-4 text-green-600" />
                         <span className="text-sm font-medium">Engagement</span>
                       </div>
-                      <div className="text-2xl font-bold">{Math.round(selectedCategory.totalCalls / selectedCategory.uniqueSellers)}</div>
-                      <div className="text-xs text-muted-foreground">Calls per seller</div>
+                      <div className="text-2xl font-bold">{selectedCategory.avgIntentScore}/10</div>
+                      <div className="text-xs text-muted-foreground">Average intent score</div>
                     </CardContent>
                   </Card>
 
@@ -538,7 +444,7 @@ export default function CategoriesPage() {
                         <Clock className="w-4 h-4 text-purple-600" />
                         <span className="text-sm font-medium">Avg Duration</span>
                       </div>
-                      <div className="text-2xl font-bold">{formatDuration(selectedCategory.averageDuration)}</div>
+                      <div className="text-2xl font-bold">{formatDuration(selectedCategory.avgDuration)}</div>
                       <div className="text-xs text-muted-foreground">Conversation length</div>
                     </CardContent>
                   </Card>
@@ -546,132 +452,314 @@ export default function CategoriesPage() {
               </TabsContent>
 
               <TabsContent value="geography" className="space-y-6">
-                <div className="grid gap-6 md:grid-cols-2">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg">Top Cities</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ResponsiveContainer width="100%" height={250}>
-                        <BarChart data={selectedCategory.topCities.slice(0, 8)}>
-                          <CartesianGrid strokeDasharray="3 3" />
-                          <XAxis dataKey="city" angle={-45} textAnchor="end" height={60} fontSize={10} />
-                          <YAxis />
-                          <Tooltip />
-                          <Bar dataKey="count" fill="#3b82f6" />
-                        </BarChart>
-                      </ResponsiveContainer>
-                    </CardContent>
-                  </Card>
+                {(() => {
+                  // Extract geographic data from calls in this category
+                  const categoryCallsData = calls.filter((call: any) =>
+                    (call.analysis?.category || 'Uncategorized') === selectedCategory.category
+                  );
 
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg">State Distribution</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-3">
-                        {selectedCategory.topStates.slice(0, 6).map((state, idx) => (
-                          <div key={idx} className="flex items-center justify-between">
-                            <span className="text-sm font-medium">{state.state}</span>
-                            <div className="flex items-center gap-2">
-                              <div className="w-20 bg-gray-200 rounded-full h-2">
-                                <div
-                                  className="bg-indigo-600 h-2 rounded-full"
-                                  style={{
-                                    width: `${(state.count / Math.max(...selectedCategory.topStates.map(s => s.count))) * 100}%`
-                                  }}
-                                />
-                              </div>
-                              <span className="text-sm text-muted-foreground w-8 text-right">
-                                {state.count}
-                              </span>
-                            </div>
-                          </div>
-                        ))}
+                  const cityMap = new Map<string, { count: number; state: string }>();
+                  const stateMap = new Map<string, number>();
+
+                  categoryCallsData.forEach((call: any) => {
+                    const city = call.csv_metadata?.city_name;
+                    const state = call.csv_metadata?.state_name;
+
+                    if (city && state) {
+                      cityMap.set(city, {
+                        count: (cityMap.get(city)?.count || 0) + 1,
+                        state: state
+                      });
+                      stateMap.set(state, (stateMap.get(state) || 0) + 1);
+                    }
+                  });
+
+                  const topCities = Array.from(cityMap.entries())
+                    .map(([city, data]) => ({ city, count: data.count, state: data.state }))
+                    .sort((a, b) => b.count - a.count)
+                    .slice(0, 10);
+
+                  const topStates = Array.from(stateMap.entries())
+                    .map(([state, count]) => ({ state, count }))
+                    .sort((a, b) => b.count - a.count)
+                    .slice(0, 5);
+
+                  if (topCities.length === 0) {
+                    return (
+                      <div className="text-center py-8 text-muted-foreground">
+                        Geographic data not available for live categories. Upload more calls with location data to see geographic distribution.
                       </div>
-                    </CardContent>
-                  </Card>
-                </div>
+                    );
+                  }
+
+                  return (
+                    <div className="grid gap-6 md:grid-cols-2">
+                      <Card>
+                        <CardHeader>
+                          <CardTitle className="text-lg">Top Cities</CardTitle>
+                          <CardDescription>Call distribution by city</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="space-y-3">
+                            {topCities.map((item, idx) => (
+                              <div key={idx} className="flex items-center justify-between">
+                                <div className="flex-1">
+                                  <div className="font-medium">{item.city}</div>
+                                  <div className="text-xs text-muted-foreground">{item.state}</div>
+                                </div>
+                                <div className="flex items-center gap-3">
+                                  <div className="text-sm font-medium">{item.count} calls</div>
+                                  <div className="w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div
+                                      className="h-full bg-blue-600 rounded-full"
+                                      style={{ width: `${(item.count / topCities[0].count) * 100}%` }}
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </CardContent>
+                      </Card>
+
+                      <Card>
+                        <CardHeader>
+                          <CardTitle className="text-lg">Top States</CardTitle>
+                          <CardDescription>Call distribution by state</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="space-y-3">
+                            {topStates.map((item, idx) => (
+                              <div key={idx} className="flex items-center justify-between">
+                                <div className="flex-1">
+                                  <div className="font-medium">{item.state}</div>
+                                </div>
+                                <div className="flex items-center gap-3">
+                                  <div className="text-sm font-medium">{item.count} calls</div>
+                                  <div className="w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div
+                                      className="h-full bg-green-600 rounded-full"
+                                      style={{ width: `${(item.count / topStates[0].count) * 100}%` }}
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  );
+                })()}
               </TabsContent>
 
               <TabsContent value="timing" className="space-y-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">Call Timing Patterns</CardTitle>
-                    <CardDescription>When buyers and sellers connect in this category</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <ResponsiveContainer width="100%" height={300}>
-                      <AreaChart data={[
-                        { time: '6-12 AM', calls: selectedCategory.timeDistribution.morning, label: 'Morning' },
-                        { time: '12-6 PM', calls: selectedCategory.timeDistribution.afternoon, label: 'Afternoon' },
-                        { time: '6-10 PM', calls: selectedCategory.timeDistribution.evening, label: 'Evening' },
-                        { time: '10 PM-6 AM', calls: selectedCategory.timeDistribution.night, label: 'Night' }
-                      ]}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="time" />
-                        <YAxis />
-                        <Tooltip />
-                        <Area type="monotone" dataKey="calls" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-                      </AreaChart>
-                    </ResponsiveContainer>
-                  </CardContent>
-                </Card>
+                {(() => {
+                  // Extract timing data from calls in this category
+                  const categoryCallsData = calls.filter((call: any) =>
+                    (call.analysis?.category || 'Uncategorized') === selectedCategory.category
+                  );
+
+                  const hourMap = new Map<number, number>();
+                  const dayMap = new Map<string, number>();
+                  const durationData: number[] = [];
+
+                  categoryCallsData.forEach((call: any) => {
+                    // Extract hour from timestamp or call start time
+                    let hour: number | null = null;
+
+                    if (call.timestamp) {
+                      const date = new Date(call.timestamp);
+                      hour = date.getHours();
+
+                      // Get day of week
+                      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                      const dayName = days[date.getDay()];
+                      dayMap.set(dayName, (dayMap.get(dayName) || 0) + 1);
+                    } else if (call.csv_metadata?.pns_call_record_started_at) {
+                      // Parse time from HH:MM:SS format
+                      const timeParts = call.csv_metadata.pns_call_record_started_at.split(':');
+                      if (timeParts.length >= 1) {
+                        hour = parseInt(timeParts[0]);
+                      }
+                    }
+
+                    if (hour !== null && !isNaN(hour)) {
+                      hourMap.set(hour, (hourMap.get(hour) || 0) + 1);
+                    }
+
+                    // Extract duration
+                    const duration = call.duration_seconds || parseInt(call.csv_metadata?.call_duration || '0');
+                    if (duration > 0) {
+                      durationData.push(duration);
+                    }
+                  });
+
+                  if (hourMap.size === 0 && dayMap.size === 0) {
+                    return (
+                      <div className="text-center py-8 text-muted-foreground">
+                        Timing data not available for live categories. Upload more calls with timestamp data to see timing patterns.
+                      </div>
+                    );
+                  }
+
+                  // Calculate peak hours
+                  const hourDistribution = Array.from(hourMap.entries())
+                    .map(([hour, count]) => ({ hour, count }))
+                    .sort((a, b) => b.count - a.count);
+
+                  const maxHourCount = hourDistribution[0]?.count || 1;
+
+                  // Calculate day distribution
+                  const dayOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+                  const dayDistribution = dayOrder
+                    .map(day => ({ day, count: dayMap.get(day) || 0 }))
+                    .filter(item => item.count > 0);
+
+                  const maxDayCount = Math.max(...dayDistribution.map(d => d.count), 1);
+
+                  // Calculate average duration
+                  const avgDuration = durationData.length > 0
+                    ? Math.round(durationData.reduce((a, b) => a + b, 0) / durationData.length)
+                    : 0;
+
+                  const formatHour = (hour: number) => {
+                    const period = hour >= 12 ? 'PM' : 'AM';
+                    const displayHour = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
+                    return `${displayHour}:00 ${period}`;
+                  };
+
+                  return (
+                    <div className="space-y-6">
+                      <div className="grid gap-6 md:grid-cols-2">
+                        <Card>
+                          <CardHeader>
+                            <CardTitle className="text-lg">Peak Hours</CardTitle>
+                            <CardDescription>Call volume by hour of day</CardDescription>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="space-y-3">
+                              {hourDistribution.slice(0, 8).map((item, idx) => (
+                                <div key={idx} className="flex items-center justify-between">
+                                  <div className="flex-1">
+                                    <div className="font-medium">{formatHour(item.hour)}</div>
+                                  </div>
+                                  <div className="flex items-center gap-3">
+                                    <div className="text-sm font-medium">{item.count} calls</div>
+                                    <div className="w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                      <div
+                                        className="h-full bg-purple-600 rounded-full"
+                                        style={{ width: `${(item.count / maxHourCount) * 100}%` }}
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </CardContent>
+                        </Card>
+
+                        {dayDistribution.length > 0 && (
+                          <Card>
+                            <CardHeader>
+                              <CardTitle className="text-lg">Day Distribution</CardTitle>
+                              <CardDescription>Call volume by day of week</CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                              <div className="space-y-3">
+                                {dayDistribution.map((item, idx) => (
+                                  <div key={idx} className="flex items-center justify-between">
+                                    <div className="flex-1">
+                                      <div className="font-medium">{item.day}</div>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                      <div className="text-sm font-medium">{item.count} calls</div>
+                                      <div className="w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                        <div
+                                          className="h-full bg-indigo-600 rounded-full"
+                                          style={{ width: `${(item.count / maxDayCount) * 100}%` }}
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </CardContent>
+                          </Card>
+                        )}
+                      </div>
+
+                      {avgDuration > 0 && (
+                        <Card>
+                          <CardHeader>
+                            <CardTitle className="text-lg">Duration Insights</CardTitle>
+                            <CardDescription>Call duration statistics</CardDescription>
+                          </CardHeader>
+                          <CardContent>
+                            <div className="grid gap-4 md:grid-cols-3">
+                              <div className="p-4 border rounded-lg">
+                                <div className="text-sm text-muted-foreground mb-1">Average Duration</div>
+                                <div className="text-2xl font-bold">{Math.floor(avgDuration / 60)}:{String(avgDuration % 60).padStart(2, '0')}</div>
+                              </div>
+                              <div className="p-4 border rounded-lg">
+                                <div className="text-sm text-muted-foreground mb-1">Shortest Call</div>
+                                <div className="text-2xl font-bold">
+                                  {Math.floor(Math.min(...durationData) / 60)}:{String(Math.min(...durationData) % 60).padStart(2, '0')}
+                                </div>
+                              </div>
+                              <div className="p-4 border rounded-lg">
+                                <div className="text-sm text-muted-foreground mb-1">Longest Call</div>
+                                <div className="text-2xl font-bold">
+                                  {Math.floor(Math.max(...durationData) / 60)}:{String(Math.max(...durationData) % 60).padStart(2, '0')}
+                                </div>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      )}
+                    </div>
+                  );
+                })()}
               </TabsContent>
 
               <TabsContent value="sources" className="space-y-6">
-                <div className="grid gap-6 md:grid-cols-2">
+                <div className="grid gap-4 md:grid-cols-2">
                   <Card>
                     <CardHeader>
-                      <CardTitle className="text-lg">Call Source Distribution</CardTitle>
+                      <CardTitle className="text-lg">Category Metrics</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <ResponsiveContainer width="100%" height={250}>
-                        <PieChart>
-                          <Pie
-                            data={Object.entries(selectedCategory.callSourceBreakdown).map(([source, count]) => ({
-                              name: source,
-                              value: count
-                            }))}
-                            cx="50%"
-                            cy="50%"
-                            outerRadius={80}
-                            fill="#8884d8"
-                            dataKey="value"
-                            label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-                          >
-                            {Object.entries(selectedCategory.callSourceBreakdown).map((entry, index) => (
-                              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                            ))}
-                          </Pie>
-                          <Tooltip />
-                        </PieChart>
-                      </ResponsiveContainer>
+                      <div className="space-y-3">
+                        <div className="flex justify-between items-center">
+                          <span className="text-sm text-muted-foreground">Follow-up Rate</span>
+                          <span className="font-medium">{selectedCategory.followUpRate}%</span>
+                        </div>
+                        <div className="flex justify-between items-center">
+                          <span className="text-sm text-muted-foreground">Avg Intent Score</span>
+                          <span className="font-medium">{selectedCategory.avgIntentScore}/10</span>
+                        </div>
+                        <div className="flex justify-between items-center">
+                          <span className="text-sm text-muted-foreground">Total Calls</span>
+                          <span className="font-medium">{selectedCategory.totalCalls}</span>
+                        </div>
+                      </div>
                     </CardContent>
                   </Card>
 
                   <Card>
                     <CardHeader>
-                      <CardTitle className="text-lg">Customer Type Breakdown</CardTitle>
+                      <CardTitle className="text-lg">Performance</CardTitle>
                     </CardHeader>
                     <CardContent>
                       <div className="space-y-3">
-                        {Object.entries(selectedCategory.customerTypeBreakdown).map(([type, count], idx) => (
-                          <div key={idx} className="flex items-center justify-between p-3 border rounded-lg">
-                            <span className="font-medium">Type {type}</span>
-                            <div className="flex items-center gap-2">
-                              <div className="w-16 bg-gray-200 rounded-full h-2">
-                                <div
-                                  className="bg-green-600 h-2 rounded-full"
-                                  style={{
-                                    width: `${(count / Math.max(...Object.values(selectedCategory.customerTypeBreakdown))) * 100}%`
-                                  }}
-                                />
-                              </div>
-                              <span className="text-sm font-medium w-8 text-right">{count}</span>
-                            </div>
-                          </div>
-                        ))}
+                        <div className="flex justify-between items-center">
+                          <span className="text-sm text-muted-foreground">Avg Duration</span>
+                          <span className="font-medium">{formatDuration(selectedCategory.avgDuration)}</span>
+                        </div>
+                        <div className="flex justify-between items-center">
+                          <span className="text-sm text-muted-foreground">Category</span>
+                          <span className="font-medium">{selectedCategory.category}</span>
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
@@ -681,6 +769,45 @@ export default function CategoriesPage() {
           </CardContent>
         </Card>
       )}
+
+      {/* Category Details Table */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Category Details</CardTitle>
+          <CardDescription>Detailed metrics for each category</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            {categories.map((cat, index) => (
+              <div key={index} className="p-4 border rounded-lg hover:bg-gray-50 transition-colors">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="font-semibold text-lg">{cat.category}</h3>
+                  <Badge variant="secondary">{cat.totalCalls} calls</Badge>
+                </div>
+                <div className="grid grid-cols-3 gap-4 text-sm">
+                  <div>
+                    <span className="text-muted-foreground">Avg Duration:</span>
+                    <div className="font-medium">{formatDuration(cat.avgDuration)}</div>
+                  </div>
+                  <div>
+                    <span className="text-muted-foreground">Avg Intent:</span>
+                    <div className="font-medium">{cat.avgIntentScore}/10</div>
+                  </div>
+                  <div>
+                    <span className="text-muted-foreground">Follow-up Rate:</span>
+                    <div className="font-medium">{cat.followUpRate}%</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+            {categories.length === 0 && (
+              <div className="text-center py-8 text-muted-foreground">
+                No categories found. Upload some calls to see category analysis.
+              </div>
+            )}
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }

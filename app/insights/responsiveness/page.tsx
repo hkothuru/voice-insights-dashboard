@@ -33,6 +33,7 @@ interface ResponsivenessInsights {
     highNoiseCalls: number;
     poorToneCalls: number;
     shortDurationCalls: number;
+    goodCalls: number;
   };
   sellerQualityScores: Array<{
     sellerId: string;
@@ -42,7 +43,7 @@ interface ResponsivenessInsights {
   actionableRecommendations: string[];
 }
 
-const COLORS = ['#ef4444', '#f59e0b', '#10b981'];
+const COLORS = ['#ef4444', '#f59e0b', '#3b82f6', '#10b981'];
 
 export default function ResponsivenessPage() {
   const [insights, setInsights] = useState<ResponsivenessInsights | null>(null);
@@ -70,7 +71,7 @@ export default function ResponsivenessPage() {
         <div className="animate-pulse space-y-6">
           <div className="h-8 bg-gray-200 rounded w-1/4"></div>
           <div className="grid grid-cols-3 gap-4">
-            {[1,2,3].map(i => (
+            {[1, 2, 3].map(i => (
               <div key={i} className="h-32 bg-gray-200 rounded"></div>
             ))}
           </div>
@@ -84,9 +85,10 @@ export default function ResponsivenessPage() {
   }
 
   const qualityData = [
-    { issue: 'High Noise', count: insights.qualityMetrics.highNoiseCalls, percentage: Math.round((insights.qualityMetrics.highNoiseCalls / insights.totalCalls) * 100) },
-    { issue: 'Poor Tone', count: insights.qualityMetrics.poorToneCalls, percentage: Math.round((insights.qualityMetrics.poorToneCalls / insights.totalCalls) * 100) },
-    { issue: 'Short Calls', count: insights.qualityMetrics.shortDurationCalls, percentage: Math.round((insights.qualityMetrics.shortDurationCalls / insights.totalCalls) * 100) }
+    { issue: 'High Noise', count: insights.qualityMetrics.highNoiseCalls, percentage: insights.totalCalls > 0 ? Math.round((insights.qualityMetrics.highNoiseCalls / insights.totalCalls) * 100) : 0 },
+    { issue: 'Poor Tone', count: insights.qualityMetrics.poorToneCalls, percentage: insights.totalCalls > 0 ? Math.round((insights.qualityMetrics.poorToneCalls / insights.totalCalls) * 100) : 0 },
+    { issue: 'Short Calls', count: insights.qualityMetrics.shortDurationCalls, percentage: insights.totalCalls > 0 ? Math.round((insights.qualityMetrics.shortDurationCalls / insights.totalCalls) * 100) : 0 },
+    { issue: 'Good Calls', count: insights.qualityMetrics.goodCalls, percentage: insights.totalCalls > 0 ? Math.round((insights.qualityMetrics.goodCalls / insights.totalCalls) * 100) : 0 }
   ];
 
   const lowQualitySellers = insights.sellerQualityScores.filter(s => s.qualityScore < 70);
@@ -121,7 +123,20 @@ export default function ResponsivenessPage() {
       </div>
 
       {/* Key Metrics */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+        <Card className="border-slate-200 bg-slate-50/50">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-slate-700">Total Calls</CardTitle>
+            <Phone className="h-4 w-4 text-slate-600" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold text-slate-900">
+              {insights.totalCalls}
+            </div>
+            <p className="text-xs text-slate-600">Analyzed calls</p>
+          </CardContent>
+        </Card>
+
         <Card className="border-red-200 bg-red-50/50">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-red-700">Quality Issues</CardTitle>
@@ -129,7 +144,7 @@ export default function ResponsivenessPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-red-900">
-              {Object.values(insights.qualityMetrics).reduce((a, b) => a + b, 0)}
+              {insights.qualityMetrics.highNoiseCalls + insights.qualityMetrics.poorToneCalls + insights.qualityMetrics.shortDurationCalls}
             </div>
             <p className="text-xs text-red-600">Calls with quality problems</p>
           </CardContent>
@@ -167,6 +182,19 @@ export default function ResponsivenessPage() {
             <p className="text-xs text-blue-600">Calls ending within 30 seconds</p>
           </CardContent>
         </Card>
+
+        <Card className="border-green-200 bg-green-50/50">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-green-700">Good Calls</CardTitle>
+            <Phone className="h-4 w-4 text-green-600" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold text-green-900">{insights.qualityMetrics.goodCalls}</div>
+            <p className="text-xs text-green-600">
+              {insights.totalCalls > 0 ? Math.round((insights.qualityMetrics.goodCalls / insights.totalCalls) * 100) : 0}% of total calls
+            </p>
+          </CardContent>
+        </Card>
       </div>
 
       {/* Quality Issues Breakdown */}
@@ -191,7 +219,7 @@ export default function ResponsivenessPage() {
                   outerRadius={100}
                   fill="#8884d8"
                   dataKey="count"
-                  label={({ issue, percentage }) => `${issue}: ${percentage}%`}
+                  label={({ payload }) => `${payload.issue}: ${payload.percentage}%`}
                 >
                   {qualityData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />

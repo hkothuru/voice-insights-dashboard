@@ -73,7 +73,7 @@ export default function LeadIntentPage() {
         <div className="animate-pulse space-y-6">
           <div className="h-8 bg-gray-200 rounded w-1/4"></div>
           <div className="grid grid-cols-3 gap-4">
-            {[1,2,3].map(i => (
+            {[1, 2, 3].map(i => (
               <div key={i} className="h-32 bg-gray-200 rounded"></div>
             ))}
           </div>
@@ -187,7 +187,7 @@ export default function LeadIntentPage() {
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie
-                  data={intentData}
+                  data={intentData.filter(d => d.value > 0)}
                   cx="50%"
                   cy="50%"
                   outerRadius={100}
@@ -195,7 +195,7 @@ export default function LeadIntentPage() {
                   dataKey="value"
                   label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
                 >
-                  {intentData.map((entry, index) => (
+                  {intentData.filter(d => d.value > 0).map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
                 </Pie>

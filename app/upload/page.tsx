@@ -30,11 +30,28 @@ export default function UploadPage() {
             const reader = new FileReader();
             reader.onload = (event) => {
                 const text = event.target?.result as string;
-                const rows = text.split('\n').map(row => row.split(',')); // Basic CSV parsing
+                const rows = text.split('\n').map(row => {
+                    // Handle CSV with quoted fields
+                    const regex = /("([^"]*)"|([^\t,]+))(\t|,|$)/g;
+                    const fields: string[] = [];
+                    let match;
+                    while ((match = regex.exec(row)) !== null) {
+                        fields.push(match[2] || match[3] || '');
+                    }
+                    return fields;
+                });
+
                 if (rows.length > 0) {
                     const headers = rows[0].map(h => h.trim());
                     setCsvHeaders(headers);
-                    setSelectedColumn(headers[0]); // Default first column
+
+                    // Auto-detect URL column
+                    const urlColumn = headers.find(h =>
+                        h.toLowerCase().includes('url') ||
+                        h.toLowerCase().includes('recording')
+                    ) || headers[0];
+
+                    setSelectedColumn(urlColumn);
                     setCsvPreview(rows.slice(1, 4)); // Preview first 3 rows
                 }
             };
@@ -52,26 +69,64 @@ export default function UploadPage() {
         setResult(null);
         setBulkProgress(null);
 
-        let urlsToProcess: string[] = [];
+        interface UrlWithMetadata {
+            url: string;
+            metadata?: Record<string, any>;
+        }
+
+        let urlsToProcess: UrlWithMetadata[] = [];
 
         // 1. Prepare List
         if (activeTab === 'bulk') {
-            urlsToProcess = bulkUrls.split('\n').map(u => u.trim()).filter(u => u.length > 0);
+            urlsToProcess = bulkUrls.split('\n').map(u => u.trim()).filter(u => u.length > 0).map(u => ({ url: u }));
         } else if (activeTab === 'csv' && csvFile) {
-            // Re-read file to get full list
+            // Re-read file to get full list with all columns
             const text = await csvFile.text();
-            const rows = text.split('\n').map(row => row.split(','));
-            const headerIndex = rows[0].findIndex(h => h.trim() === selectedColumn);
+            const rows = text.split('\n').map(row => {
+                const regex = /("([^"]*)"|([^\t,]+))(\t|,|$)/g;
+                const fields: string[] = [];
+                let match;
+                while ((match = regex.exec(row)) !== null) {
+                    fields.push(match[2] || match[3] || '');
+                }
+                return fields;
+            });
 
-            if (headerIndex === -1) {
+            const headers = rows[0].map(h => h.trim());
+            const urlColumnIndex = headers.findIndex(h => h.trim() === selectedColumn);
+
+            if (urlColumnIndex === -1) {
                 setBulkProgress({ total: 0, current: 0, logs: ["❌ Error: Column not found"] });
                 setIsUploading(false);
                 return;
             }
 
             urlsToProcess = rows.slice(1)
-                .map(row => row[headerIndex]?.trim())
-                .filter(u => u && u.length > 0);
+                .filter(row => {
+                    // Only process rows that have a valid URL in the selected column
+                    const urlValue = row[urlColumnIndex];
+                    return urlValue &&
+                        urlValue.trim().length > 0 &&
+                        (urlValue.trim().startsWith('http://') || urlValue.trim().startsWith('https://'));
+                })
+                .map(row => {
+                    // Create metadata object from all columns, handling null/empty values
+                    const metadata: Record<string, any> = {};
+                    headers.forEach((header, idx) => {
+                        // Only add to metadata if both header and value exist and are non-empty
+                        const headerValue = header?.trim();
+                        const cellValue = row[idx]?.trim();
+
+                        if (headerValue && cellValue && cellValue.length > 0) {
+                            metadata[headerValue] = cellValue;
+                        }
+                    });
+
+                    return {
+                        url: row[urlColumnIndex].trim(),
+                        metadata
+                    };
+                });
         }
 
         // 2. Process Batch
@@ -79,12 +134,18 @@ export default function UploadPage() {
             setBulkProgress({ total: urlsToProcess.length, current: 0, logs: [] });
 
             for (let i = 0; i < urlsToProcess.length; i++) {
-                const currentUrl = urlsToProcess[i];
+                const item = urlsToProcess[i];
+                const currentUrl = item.url;
                 setBulkProgress(prev => prev ? ({ ...prev, current: i + 1, logs: [`Processing ${i + 1}/${urlsToProcess.length}: ${currentUrl}...`, ...prev.logs] }) : null);
 
                 try {
                     const formData = new FormData();
                     formData.append('url', currentUrl);
+
+                    // Add metadata if available
+                    if (item.metadata) {
+                        formData.append('metadata', JSON.stringify(item.metadata));
+                    }
 
                     const response = await fetch('/api/process-audio', {
                         method: 'POST',
@@ -104,6 +165,7 @@ export default function UploadPage() {
             setIsUploading(false);
             return;
         }
+
 
         // Original Single Upload Logic
         const formData = new FormData();
@@ -197,15 +259,21 @@ export default function UploadPage() {
 
                         <TabsContent value="csv" className="space-y-4">
                             <div className="space-y-4">
-                                <Input
-                                    type="file"
-                                    accept=".csv"
-                                    onChange={handleCsvUpload}
-                                />
+                                <div>
+                                    <label className="text-sm font-medium text-slate-700 mb-2 block">Upload CSV File</label>
+                                    <Input
+                                        type="file"
+                                        accept=".csv"
+                                        onChange={handleCsvUpload}
+                                    />
+                                    <p className="text-xs text-slate-500 mt-1">
+                                        CSV should contain columns like: buyer_identifier, seller_identifier, pns_call_recording_url, mcat_name, city_name, etc.
+                                    </p>
+                                </div>
                                 {csvFile && csvHeaders.length > 0 && (
                                     <div className="p-4 border rounded-lg bg-slate-50 space-y-3">
                                         <div>
-                                            <label className="text-xs font-semibold uppercase text-slate-500">Select URL Column</label>
+                                            <label className="text-xs font-semibold uppercase text-slate-500">Select Audio URL Column</label>
                                             <select
                                                 className="flex w-full mt-1 items-center justify-between rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 ring-offset-background placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                                                 value={selectedColumn}
@@ -216,12 +284,31 @@ export default function UploadPage() {
                                                 ))}
                                             </select>
                                         </div>
+
+                                        <div className="border-t pt-3">
+                                            <p className="text-xs font-semibold uppercase text-slate-500 mb-2">Detected Columns ({csvHeaders.length})</p>
+                                            <div className="flex flex-wrap gap-1">
+                                                {csvHeaders.map((header, idx) => (
+                                                    <Badge
+                                                        key={idx}
+                                                        variant={header === selectedColumn ? "default" : "secondary"}
+                                                        className="text-xs"
+                                                    >
+                                                        {header}
+                                                    </Badge>
+                                                ))}
+                                            </div>
+                                            <p className="text-xs text-slate-500 mt-2">
+                                                All columns will be saved as metadata for each call.
+                                            </p>
+                                        </div>
+
                                         <div className="text-xs text-slate-500">
-                                            <p>Preview (First 3 rows):</p>
-                                            <ul className="list-disc pl-4 mt-1">
+                                            <p className="font-medium mb-1">Preview (First 3 rows):</p>
+                                            <ul className="list-disc pl-4 mt-1 space-y-1">
                                                 {csvPreview.map((row, i) => {
                                                     const idx = csvHeaders.indexOf(selectedColumn);
-                                                    return <li key={i}>{row[idx] || <i>Empty</i>}</li>;
+                                                    return <li key={i} className="font-mono">{row[idx] || <i>Empty</i>}</li>;
                                                 })}
                                             </ul>
                                         </div>

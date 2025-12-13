@@ -1,4 +1,4 @@
-import { getCalls } from './db';
+import { getCalls, Call } from './db';
 
 export interface SpecIntelligence {
   category: string;
@@ -110,7 +110,9 @@ export interface DemandGapInsights {
  * Analyzes buyer-seller conversations to generate actionable insights
  */
 export class VoiceInsightsEngine {
-  private calls = getCalls();
+  private get calls() {
+    return getCalls();
+  }
 
   /**
    * Analyze specification intelligence across categories
@@ -124,13 +126,15 @@ export class VoiceInsightsEngine {
       let totalIntent = 0;
       let followUpCount = 0;
 
-      calls.forEach(call => {
+      for (const call of calls) {
         const analysis = call.analysis;
 
         // Count missing specs
-        analysis?.missing_specs?.forEach(spec => {
-          missingSpecsFreq[spec] = (missingSpecsFreq[spec] || 0) + 1;
-        });
+        if (analysis?.missing_specs && Array.isArray(analysis.missing_specs)) {
+          for (const spec of analysis.missing_specs) {
+            missingSpecsFreq[spec] = (missingSpecsFreq[spec] || 0) + 1;
+          }
+        }
 
         // Count objections
         const objection = analysis?.objection_type;
@@ -145,7 +149,7 @@ export class VoiceInsightsEngine {
         if (analysis?.deal_status?.toLowerCase().includes('follow-up')) {
           followUpCount++;
         }
-      });
+      }
 
       const topMissingSpecs = Object.entries(missingSpecsFreq)
         .map(([spec, freq]) => ({
@@ -211,26 +215,32 @@ export class VoiceInsightsEngine {
 
     // Overall statistics
     const totalConversations = allCalls.length;
-    const followUpRate = Math.round((allCalls.filter(c =>
+    const followUpRate = Math.round((allCalls.filter((c: Call) =>
       c.analysis?.deal_status?.toLowerCase().includes('follow-up')
     ).length / totalConversations) * 100);
 
     const avgIntentScore = Math.round(
-      allCalls.reduce((sum, c) => sum + (c.analysis?.buyer_intent_score || 0), 0) / totalConversations * 10
+      allCalls.reduce((sum: number, c: Call) => sum + (c.analysis?.buyer_intent_score || 0), 0) / totalConversations * 10
     ) / 10;
 
     // Top missing specs across all categories
     const globalMissingSpecs: Record<string, number> = {};
-    allCalls.forEach(call => {
-      call.analysis?.missing_specs?.forEach(spec => {
-        globalMissingSpecs[spec] = (globalMissingSpecs[spec] || 0) + 1;
-      });
-    });
+    for (const call of allCalls) {
+      if (call.analysis?.missing_specs && Array.isArray(call.analysis.missing_specs)) {
+        for (const spec of call.analysis.missing_specs) {
+          globalMissingSpecs[spec] = (globalMissingSpecs[spec] || 0) + 1;
+        }
+      }
+    }
 
     const topGlobalSpecs = Object.entries(globalMissingSpecs)
       .map(([spec, freq]) => ({ spec, frequency: freq, percentage: Math.round((freq / totalConversations) * 100) }))
       .sort((a, b) => b.frequency - a.frequency)
       .slice(0, 10);
+
+    const missingSpecsCount = allCalls.filter((c: Call) =>
+      c.analysis?.missing_specs && Array.isArray(c.analysis.missing_specs) && c.analysis.missing_specs.length > 0
+    ).length;
 
     return {
       platformStats: {
@@ -241,17 +251,13 @@ export class VoiceInsightsEngine {
       },
       globalSpecIntelligence: {
         topMissingSpecs: topGlobalSpecs,
-        specClarificationRate: Math.round((allCalls.filter(c =>
-          c.analysis?.missing_specs && c.analysis.missing_specs.length > 0
-        ).length / totalConversations) * 100)
+        specClarificationRate: Math.round((missingSpecsCount / totalConversations) * 100)
       },
       keyInsights: [
         `${followUpRate}% of conversations result in follow-up opportunities`,
         `${topGlobalSpecs[0]?.percentage || 0}% of calls lack ${topGlobalSpecs[0]?.spec || 'key specifications'}`,
         `Average buyer intent score: ${avgIntentScore}/10`,
-        `Specification clarification needed in ${Math.round((allCalls.filter(c =>
-          c.analysis?.missing_specs && c.analysis.missing_specs.length > 0
-        ).length / totalConversations) * 100)}% of conversations`
+        `Specification clarification needed in ${Math.round((missingSpecsCount / totalConversations) * 100)}% of conversations`
       ]
     };
   }
@@ -260,7 +266,7 @@ export class VoiceInsightsEngine {
 
   private groupCallsByCategory() {
     const groups: Record<string, any[]> = {};
-    this.calls.forEach(call => {
+    this.calls.forEach((call: Call) => {
       const category = call.analysis?.category || 'Uncategorized';
       if (!groups[category]) groups[category] = [];
       groups[category].push(call);
@@ -277,7 +283,7 @@ export class VoiceInsightsEngine {
 
     if (topMissingSpecs.length > 0) {
       recommendations.push(
-        `Add ${topMissingSpecs[0].spec} to ${Math.round(topMissingSpecs[0].percentage/100 * this.calls.length)} listings in ${category}`
+        `Add ${topMissingSpecs[0].spec} to ${Math.round(topMissingSpecs[0].percentage / 100 * this.calls.length)} listings in ${category}`
       );
     }
 
@@ -380,7 +386,7 @@ export class VoiceInsightsEngine {
       categories: Set<string>;
     }>();
 
-    this.calls.forEach(call => {
+    this.calls.forEach((call: Call) => {
       const analysis = call.analysis;
       if (!analysis?.buyer_intent_score) return;
 
@@ -436,7 +442,7 @@ export class VoiceInsightsEngine {
     const categoryObjections = new Map<string, Map<string, number>>();
     const sellerObjections = new Map<string, Map<string, number>>();
 
-    this.calls.forEach(call => {
+    this.calls.forEach((call: Call) => {
       const analysis = call.analysis;
       const negotiationData = analysis?.negotiation_dynamics;
 
@@ -575,7 +581,7 @@ export class VoiceInsightsEngine {
       categories: Set<string>;
     }> = [];
 
-    this.calls.forEach(call => {
+    this.calls.forEach((call: Call) => {
       const langAnalysis = call.analysis?.language_analysis;
       const category = call.analysis?.category || 'Unknown';
 
@@ -588,7 +594,7 @@ export class VoiceInsightsEngine {
         if (langAnalysis.language_barriers && langAnalysis.language_barriers !== 'None' && langAnalysis.language_barriers !== '') {
           // Try to infer secondary language from barriers description
           let secondaryLang = 'Unknown';
-          Object.keys(languagePatterns).forEach(lang => {
+          Object.keys(languagePatterns).forEach((lang: string) => {
             if (langAnalysis.language_barriers.toLowerCase().includes(lang.toLowerCase())) {
               secondaryLang = lang;
             }
@@ -615,11 +621,10 @@ export class VoiceInsightsEngine {
       } else {
         // Fallback to basic pattern detection for older data
         const transcript = call.transcript || '';
-
-        // Detect languages in transcript
         const detectedLanguages: string[] = [];
+
         Object.entries(languagePatterns).forEach(([lang, patterns]) => {
-          const matches = patterns.filter(pattern =>
+          const matches = patterns.filter((pattern: string) =>
             transcript.toLowerCase().includes(pattern.toLowerCase())
           ).length;
           if (matches >= 2) { // At least 2 pattern matches
@@ -634,7 +639,7 @@ export class VoiceInsightsEngine {
           'repeat please', 'slowly', 'understand'
         ];
 
-        const hasMismatch = mismatchIndicators.some(indicator =>
+        const hasMismatch = mismatchIndicators.some((indicator: string) =>
           transcript.toLowerCase().includes(indicator)
         ) && detectedLanguages.length > 1;
 
@@ -695,7 +700,8 @@ export class VoiceInsightsEngine {
     const qualityMetrics = {
       highNoiseCalls: 0,
       poorToneCalls: 0,
-      shortDurationCalls: 0
+      shortDurationCalls: 0,
+      goodCalls: 0
     };
 
     const sellerQualityMap = new Map<string, {
@@ -704,7 +710,7 @@ export class VoiceInsightsEngine {
       shortCalls: number;
     }>();
 
-    this.calls.forEach(call => {
+    this.calls.forEach((call: Call) => {
       const analysis = call.analysis;
       const sellerId = analysis?.seller_id || call.metadata?.seller_id || 'Unknown';
       const duration = call.duration_seconds || 0;
@@ -723,8 +729,8 @@ export class VoiceInsightsEngine {
         }
 
         // Check call quality issues
-        if (responsivenessData.call_quality_issues && responsivenessData.call_quality_issues.length > 0) {
-          responsivenessData.call_quality_issues.forEach(issue => {
+        if (responsivenessData.call_quality_issues && Array.isArray(responsivenessData.call_quality_issues) && responsivenessData.call_quality_issues.length > 0) {
+          responsivenessData.call_quality_issues.forEach((issue: string) => {
             if (issue.includes('noise')) {
               qualityMetrics.highNoiseCalls++;
               issues.push('noise');
@@ -786,6 +792,9 @@ export class VoiceInsightsEngine {
 
       if (hasQualityIssues) {
         sellerData.qualityIssues.push(...issues);
+      } else {
+        // Increment good calls counter when no quality issues detected
+        qualityMetrics.goodCalls++;
       }
     });
 
@@ -801,6 +810,7 @@ export class VoiceInsightsEngine {
         if (uniqueIssues.includes('noise')) issues.push('Background noise affecting calls');
         if (uniqueIssues.includes('tone')) issues.push('Poor call etiquette detected');
         if (uniqueIssues.includes('short_call')) issues.push('Calls ending prematurely');
+        if (uniqueIssues.includes('low_engagement')) issues.push('Low call engagement');
 
         return {
           sellerId,
@@ -808,9 +818,8 @@ export class VoiceInsightsEngine {
           issues
         };
       })
-      .filter(seller => seller.qualityScore < 80 && seller.issues.length > 0)
       .sort((a, b) => a.qualityScore - b.qualityScore)
-      .slice(0, 10);
+      .slice(0, 20); // Show top 20 sellers by quality (worst first)
 
     const actionableRecommendations = [
       `Improve call quality for ${sellerQualityScores.length} sellers with scores below 80`,
@@ -854,7 +863,7 @@ export class VoiceInsightsEngine {
       'iso certified', 'fssai', 'bis', 'ce certified', 'rohs compliant', 'organic certified'
     ];
 
-    this.calls.forEach(call => {
+    this.calls.forEach((call: Call) => {
       const demandAnalysis = call.analysis?.demand_gap_analysis;
       const category = call.analysis?.category || 'Unknown';
 
@@ -901,7 +910,7 @@ export class VoiceInsightsEngine {
         frequency: data.frequency,
         percentage: Math.round((data.frequency / this.calls.length) * 100 * 10) / 10
       }))
-      .filter(demand => demand.frequency >= 5) // At least 5 mentions
+      .filter(demand => demand.frequency >= 1) // Show all demands for now
       .sort((a, b) => b.frequency - a.frequency)
       .slice(0, 20);
 

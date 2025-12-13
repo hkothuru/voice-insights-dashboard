@@ -3,6 +3,15 @@ import path from 'path';
 
 const DB_PATH = path.join(process.cwd(), 'src/data/db.json');
 
+export interface Call {
+    id: string;
+    timestamp: string;
+    duration_seconds: number;
+    transcript: string;
+    analysis: Analysis;
+    metadata?: any;
+}
+
 export interface Analysis {
     category: string;
     deal_status: string;

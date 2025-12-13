@@ -66,7 +66,7 @@ export default function DemandPage() {
         <div className="animate-pulse space-y-6">
           <div className="h-8 bg-gray-200 rounded w-1/4"></div>
           <div className="grid grid-cols-3 gap-4">
-            {[1,2,3].map(i => (
+            {[1, 2, 3].map(i => (
               <div key={i} className="h-32 bg-gray-200 rounded"></div>
             ))}
           </div>
@@ -143,7 +143,9 @@ export default function DemandPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-green-900">
-              {Math.round(insights.unmetDemands.reduce((sum, d) => sum + d.frequency, 0) / insights.unmetDemands.length)}
+              {insights.unmetDemands.length > 0
+                ? Math.round(insights.unmetDemands.reduce((sum, d) => sum + d.frequency, 0) / insights.unmetDemands.length)
+                : 0}
             </div>
             <p className="text-xs text-green-600">Mentions per specification</p>
           </CardContent>
@@ -363,6 +365,6 @@ export default function DemandPage() {
           </div>
         </CardContent>
       </Card>
-    </div>
+    </div >
   );
 }
