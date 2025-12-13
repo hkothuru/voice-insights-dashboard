@@ -1,5 +1,1270 @@
 [
   {
+    "id": "call_1765608225037",
+    "filename": "url_audio",
+    "timestamp": "2025-12-13T06:43:45.037Z",
+    "duration_seconds": 38,
+    "transcript": "Seller: हेलो। Buyer: हां जी भैया राधे-राधे। Seller: राधे-राधे सर। Buyer: नहीं नहीं एक ऑटोमेटिक नंबरिंग मशीन देखी थी आपकी इंडिया मार्ट पे। Seller: ओके। Buyer: जी मैंने आपको WhatsApp पे शायद इंडिया मार्ट पे डाला भी है। मुझे एक नंबरिंग मशीन लेनी थी। ये कितने रुपए की पड़ेगी लगभग? Seller: सर आप ना मुझे एक बार नंबर बताइए बस अपना। Buyer: 99977 Seller: 99977 Buyer: 77300 Seller: 300 Buyer: 30030 Seller: सर मैं नंबर रिपीट कर रहा हूं आपको सुनिएगा। 9997730030 Buyer: जी जी जी। Seller: मैं आपको इसी नंबर पे उसका कैटलॉग सेंड करता हूं। Buyer: हां भैया। Seller: मैं आपको इसी नंबर पर कैटलॉग सेंड करता हूं। आप मुझे लिख के भेजिए मैं आपको हाय लिखता हूं। आप मुझे कौन सी मशीन चाहिए उसका कैटलॉग पूरा का पूरा आएगा। आपको मॉडल सेलेक्ट करना पड़ेगा। ठीक है? Buyer: ठीक है ठीक है भैया। भेजिए हमें। Seller: क्या कर रहे हो अभी हाय। Buyer: हम्म। ",
+    "analysis": {
+      "category": "Machinery",
+      "deal_status": "Follow-up",
+      "objection_type": "None",
+      "buyer_intent_score": 8,
+      "missing_specs": [
+        "Price"
+      ],
+      "summary": "The buyer inquired about an automatic numbering machine they saw on IndiaMart and asked for its approximate price. The seller requested the buyer's WhatsApp number to send a product catalog, from which the buyer can select a specific model.",
+      "seller_id": "Unknown",
+      "buyer_id": "Unknown",
+      "product": "Automatic Numbering Machine",
+      "price_discussion": {
+        "final_price": "Not discussed",
+        "currency": "INR"
+      },
+      "language_analysis": {
+        "primary_language": "Hindi",
+        "language_barriers": "None",
+        "translation_needed": "No"
+      },
+      "responsiveness_analysis": {
+        "background_noise_level": "medium",
+        "call_quality_issues": [],
+        "seller_tone": "engaging",
+        "response_delays": "None",
+        "call_engagement": "moderately_engaged"
+      },
+      "demand_gap_analysis": {
+        "unmet_requirements": [
+          "Approximate price"
+        ],
+        "market_gaps_identified": [],
+        "buyer_suggestions": [],
+        "competitive_advantages_needed": []
+      },
+      "negotiation_dynamics": {
+        "negotiation_present": false,
+        "negotiation_intensity": "none",
+        "buyer_behavior": "questioning",
+        "seller_flexibility": "medium",
+        "discount_requested_percent": 0,
+        "discount_offered_percent": 0,
+        "negotiation_outcome": "stalemate"
+      }
+    },
+    "csv_metadata": {
+      "buyer_identifier": "10272598",
+      "seller_identifier": "4158397",
+      "pns_call_recording_url": "https://openapi.airtel.in/gateway/airtel-xchange/callv2/recording?token=oDnLVQKhxWSV1uRSnajPmIabIalEuqtJ4CQrnrdx60JTCDI5mMlu0DcQNPhvaH1esjR13JhrfeaESd47HOPf6UXIvz0demOnXxoRLGXacIZsgRp 3CtKDba6WJAFAseS",
+      "mcat_id_x": "1546",
+      "mcat_name": "Label Printing Machines",
+      "pns_call_record_started_at": "12:44:14",
+      "pns_call_record_ended_at": "12:45:23",
+      "call_duration": "69",
+      "pns_call_caller_city_id": "73690",
+      "city_name": "Hathras",
+      "state_name": "Uttar Pradesh",
+      "pns_custtype_id": "10",
+      "pns_call_modrefname": "DPL Metal MRP Marking Machine, Model Name/Number: M6",
+      "pns_call_source_modid": "IMOB_WA",
+      "seller_vintage_days": "4103",
+      "pns_call_ring_duration": "6",
+      "mcat_id_y": "1546",
+      "url": "https://openapi.airtel.in/gateway/airtel-xchange/callv2/recording?token=oDnLVQKhxWSV1uRSnajPmIabIalEuqtJ4CQrnrdx60JTCDI5mMlu0DcQNPhvaH1esjR13JhrfeaESd47HOPf6UXIvz0demOnXxoRLGXacIZsgRp 3CtKDba6WJAFAseS",
+      "gcs_path": "gs://im-model-product/pns/c4f5f3cfc01775e6e7632ffd9e0f94dac3a4f10b0bcf7248062ab1f5db46e9be.mp3",
+      "Audio_url": "https://storage.googleapis.com/im-model-product/pns/c4f5f3cfc01775e6e7632ffd9e0f94dac3a4f10b0bcf7248062ab1f5db46e9be.mp3?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=mayank-docker%40model-product.iam.gserviceaccount.com%2F20251212%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20251212T093156Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=71e024cc62ca1f2f83dde1b1a58ab206592e9e28802e2a07007507ddd475c7ea169913b49869d7c2dcb0db13bfe2d5e7eb1e2e82f66d09974af532fc307e350aab38c4b50c62e740adeb4ec93afc8ba5b3431ee917e94c727e37611eda4c2f997a21d263cfd5e10aca2a062817e57f092741644096366720a31a16c07cec56e9d2f06e083401af8ffd340233336073f46960fdc25504d269c3c0fdc34e6997cdbdbac2feb2f0ec6a805d7d9a082eff31f441ef49336b445a1f57c9bf2859ae1a81918d5045ab50adf8a446d789d77d67e8abdfb1c4dcc465e438b2b1b2dec69162d0398bf280052fa15e7417a79dcffa6d0bdbc9a70d0d64e91a8500d008e905"
+    }
+  },
+  {
+    "id": "call_1765608208067",
+    "filename": "url_audio",
+    "timestamp": "2025-12-13T06:43:28.067Z",
+    "duration_seconds": 250,
+    "transcript": "Seller: Hello, hello. RK Label Printing Machine. Buyer: Yes sir, bolie. Seller: Bolie, kya aap kis type ka printing machine aapke paas hai? Buyer: Hum log flexo printing machine manufacturing sir. Seller: Phir se bolie, zara zor se bolie. Buyer: Flexo, flexo, flexo. Seller: Flexo kya matlab flex type ka fabric kya? Buyer: Sorry sir. Seller: Material print karte hain kya? Machine hai, machine kaisa machine hai? Maniye sir, machine ka thoda feature janna hai. Buyer: Jaise main aapko batata hu mera kya need hai, mera kya need hai? Ki humko pani ka bottle pe jo label wala jo hota hai na print, us type ka karna hai, pani ka bottle mein. Us type mein hoga sir. Seller: Pani ka bottle mein aapko sticker paper hai, nahi toh shrink label hai. Buyer: Paper pe humko lagta hai ki nahi nahi plain wala hi hai. Aur shrink wala dono chahiye, ho sakta hai shrink wala bhi chahiye humko. Seller: Aisa nahi sir, aapko for example aapko sticker paper hai, sticker paper matlab aapko gumming paper aata hai na sir, gumming wala. Buyer: Ha. Seller: Woh. Buyer: Gumming wala. Seller: Shrink nahi toh aapko PepsiCo Coca-Cola bottle mein aata hai na sir, printing. Buyer: Nahi samajh rahe baat ko humko. Seller: Aapko plastic ke upar printing karne ka, nahi toh sticker paper mein printing karne ka. Buyer: Sticker pe, sticker pe. Bottle pe nahi humko karna hai, humko uske sticker pe, plastic ke jo label rehta hai us pe karna hai, plastic ke label. Seller: Ha, uske liye banana hai. Buyer: Ha, mil jata hai sir isme. Seller: Kya cost padega uska? Buyer: Aapko color wise difference rahega. Aapko multi-color job printing karne ka matlab. Seller: Multi-color, multi-color chahiye na? Buyer: Multi-color aapko 25 lakh mein padega sir. Seller: 25 lakh. Ek 6 lakh wala, 6 lakh ka kya aapka online jo 6 lakh wala kya tha? Buyer: Sorry sir. Seller: Jo aapne mention kiya jo ispe online pe, woh 6 lakh wala kya hai? Buyer: 3 lakh hai na, woh machine aapko plain barcode label aata hai na sir. Seller: Sorry. Buyer: Aapko Flipkart Amazon mein use ho raha hai na barcode label, sticker. Seller: Barcode, barcode label. Buyer: Barcode label aata hai na sir, Flipkart se, Flipkart Amazon. Seller: Maine 6 lakh likhe the, label printing likha hua hai uske upar. Buyer: 6 lakh mein aapko single color aayega sir. Seller: Single color. Buyer: Single color aayega, woh aapko only paper printing kar sakte hai. Chroma paper, sticker paper mein chroma paper aata hai na, woh printing aapko kar sakte hai. Seller: Oh, paper print na? Buyer: Ha, isme aapko water bottle sticker printing karna hai toh maximum aapko five color nahi toh six color lena padega. Five color aapko 22 lakh mein padega, six color aapko 25 lakh mein padega. Seller: Yahi hai. Chaliye isko dekhte hain. Buyer: Theek hai. Seller: Aapko quantity kitna hai sir? Bulk quantity karne ka, short quantity karne ka? Buyer: Humko bulk quantity mein hai na order, humko printer hi ek chahiye tha. Seller: Kitna lakh rupees? Buyer: Quantity per day. Seller: Sorry? Buyer: Per day matlab humko 1000 bottle ko print karna hai. Kitna? 1000. Seller: Ha. Buyer: 1000 quantity. Seller: 1000 bottle matlab lagbhag 20-25 meter. Buyer: Sir, label ka, label ka quantity bol dijiye. 1000, 1000 label chapna hai, 1 lakh label chapna hai, woh bata dijiye. Seller: Ha, 1000 label. Buyer: 1 lakh label. Seller: 1000, 1000. Buyer: 1000 label ke liye yeh machine aapko best nahi rahega sir. Humara kya hai na, bulk quantity ke liye machine hai. Seller: Achcha, bulk mein kitna? Buyer: Ek din mein, ek din mein 1 lakh se zyada quantity karna hai toh aapko yeh machine laga ke chalu kar sakte hai. Seller: Woh 25 lakh wala. Buyer: 1000, 1000 quantity aapko karna hai toh aapko digital mein try kar dijiye. Seller: Sorry bolie, phir se bolie. Buyer: Digital, digital. Seller: Digital wala na? Digital hi khoj rahe hain hum toh. Buyer: Digital mein possible hai. Seller: Digital hai aapke paas? Buyer: Nahi, digital humare paas nahi hai sir. Seller: Koi contact hai aapke paas? Buyer: Ha, mera team mein, mera team mein. Digital printing machine karke mention kar dijiye, aapko samne se call back aayega aapko. Seller: Theek hai, theek hai. Buyer: Hmm, thank you.",
+    "analysis": {
+      "category": "Machinery",
+      "deal_status": "Dropped",
+      "objection_type": "MOQ",
+      "buyer_intent_score": 7,
+      "missing_specs": [
+        "Digital printing machine",
+        "Machine suitable for 1000 labels/day"
+      ],
+      "summary": "The buyer is looking for a label printing machine for water bottle stickers, specifically for a daily quantity of 1000 labels. The seller manufactures flexo printing machines, which are suitable for bulk quantities (1 lakh+ labels/day) and offers multi-color options ranging from 22-25 lakh. Due to the low quantity requirement, the seller recommends a digital printing machine, which they do not offer, and provides a referral.",
+      "seller_id": "RK Label Printing Machine",
+      "buyer_id": "Unknown",
+      "product": "Label Printing Machine (for water bottle stickers)",
+      "price_discussion": {
+        "final_price": "Not discussed",
+        "currency": "INR"
+      },
+      "language_analysis": {
+        "primary_language": "Hindi",
+        "language_barriers": "Low",
+        "translation_needed": false
+      },
+      "responsiveness_analysis": {
+        "background_noise_level": "medium",
+        "call_quality_issues": [
+          "Minor audio clarity issues with seller's pronunciation at times"
+        ],
+        "seller_tone": "professional/engaging",
+        "response_delays": "none",
+        "call_engagement": "moderately_engaged"
+      },
+      "demand_gap_analysis": {
+        "unmet_requirements": [
+          "Digital printing machine for lower quantity production (1000 labels/day)"
+        ],
+        "market_gaps_identified": [
+          "A need for digital label printing solutions for small to medium batch production."
+        ],
+        "buyer_suggestions": [],
+        "competitive_advantages_needed": [
+          "Seller needs to offer digital printing solutions or partner with providers for smaller quantity needs."
+        ]
+      },
+      "negotiation_dynamics": {
+        "negotiation_present": false,
+        "negotiation_intensity": "none",
+        "buyer_behavior": "questioning",
+        "seller_flexibility": "low",
+        "discount_requested_percent": 0,
+        "discount_offered_percent": 0,
+        "negotiation_outcome": "failed"
+      }
+    },
+    "csv_metadata": {
+      "buyer_identifier": "137768704",
+      "seller_identifier": "3676307",
+      "pns_call_recording_url": "https://openapi.airtel.in/gateway/airtel-xchange/callv2/recording?token=XkcnpGyCow40kTdEFACsNIabIalEuqtJ4CQrnrdx60LEOTAK rE3ZqhVFny/ipQing0C4SuEwDt/NERTRxaJH8uXm8uECHAOJX/fEzbqrmZsgRp 3CtKDba6WJAFAseS",
+      "mcat_id_x": "1546",
+      "mcat_name": "Label Printing Machines",
+      "pns_call_record_started_at": "13:55:27",
+      "pns_call_record_ended_at": "13:59:46",
+      "call_duration": "259",
+      "pns_call_caller_city_id": "78027",
+      "city_name": "Banka",
+      "state_name": "Bihar",
+      "pns_custtype_id": "10",
+      "pns_call_modrefname": "Garment Tape Label Printing Machine (2 Colour Front and 1 Colour Back)",
+      "pns_call_source_modid": "IMOB",
+      "seller_vintage_days": "3870",
+      "pns_call_ring_duration": "8",
+      "mcat_id_y": "1546",
+      "url": "https://openapi.airtel.in/gateway/airtel-xchange/callv2/recording?token=XkcnpGyCow40kTdEFACsNIabIalEuqtJ4CQrnrdx60LEOTAK rE3ZqhVFny/ipQing0C4SuEwDt/NERTRxaJH8uXm8uECHAOJX/fEzbqrmZsgRp 3CtKDba6WJAFAseS",
+      "gcs_path": "gs://im-model-product/pns/b5b87056bc1688c22039596adb4ac53d2b545966d2994d2d5bbbc0ded6228a82.mp3",
+      "Audio_url": "https://storage.googleapis.com/im-model-product/pns/b5b87056bc1688c22039596adb4ac53d2b545966d2994d2d5bbbc0ded6228a82.mp3?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=mayank-docker%40model-product.iam.gserviceaccount.com%2F20251212%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20251212T093156Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=4dbe157d2e8396a1c1dca92a42f354902787998f257a83685403917b0de44527c873882a439b71067f8a816d787d72963ec5ddf863806e43e3babe1da02e4302d3f85423ba5d56792259015d3fa67b6103ff6641ecbed591804eaeb88d7cb1f4674db074ed2730788d48f2abea6be66a8e210d0233d0189ab6ac06a96f63a5461294b54dce9cc1beb3f15e1ec77905a9e2c9af89700712f159d44b88ef48beccd22e1a2c0dfb5eede87c8fd25cfd523f035811cc82093f17ea12f11b435bc2dcf302ad949cf6d6ea57ea40e93e23b58bb1ca12b75a28ed878b744b1c584efb2829fcdab5a74fde598f06c0c570936e8cb84c044376bce941d6eb3dc821404e6c"
+    }
+  },
+  {
+    "id": "call_1765608172240",
+    "filename": "url_audio",
+    "timestamp": "2025-12-13T06:42:52.240Z",
+    "duration_seconds": 120,
+    "transcript": "Buyer: Hello. Seller: Hello. Buyer: Hello. Namaskar bhaijaan, namaskar bhaijaan. Seller: Namaste. Buyer: Main sir ye aapki Starlink jo machine hai. Seller: Haan ji. Buyer: Ye machine meri purani hai aur isko repairing karwani thi bhaijaan. Seller: Sir kahan se bol rahe ho aap? Buyer: Main Mangolpuri Industrial Area se. Seller: Mangolpuri Industrial Area se? Buyer: Haan sir. Seller: Theek hai. Ho jayegi service, repairing ho jayegi. Buyer: Ji sir. Toh main isi number pe video calling kar doon sir machine ko? Agar band band rakhi rakhi hai sir jang lag gayi hai. Seller: Aap ek baar photo video bhejo kya dikkat hai isi number pe na? Main aapko aap number likho. Ispe hi us pe daal do kya problem hai main bata dunga. Buyer: Ye ek number pe bhej ke hi likh ke bhejo bhaijaan is number se. Ab main padha likha kam hoon. Abhi number likha hai likh ke bhejo please.",
+    "analysis": {
+      "category": "Electronics",
+      "deal_status": "Follow-up",
+      "objection_type": "None",
+      "buyer_intent_score": 8,
+      "missing_specs": [],
+      "summary": "The buyer is looking to repair an old Starlink machine. The seller has agreed to provide the service and has asked the buyer to send photos or videos of the machine to assess the problem. The buyer has requested assistance in sending the details due to limited literacy.",
+      "seller_id": "Unknown",
+      "buyer_id": "Unknown",
+      "product": "Starlink machine",
+      "price_discussion": {
+        "final_price": "Not discussed",
+        "currency": "INR"
+      },
+      "language_analysis": {
+        "primary_language": "Hindi",
+        "language_barriers": "No",
+        "translation_needed": "No"
+      },
+      "responsiveness_analysis": {
+        "background_noise_level": "low",
+        "call_quality_issues": [],
+        "seller_tone": "professional",
+        "response_delays": "no notable delays",
+        "call_engagement": "moderately_engaged"
+      },
+      "demand_gap_analysis": {
+        "unmet_requirements": [],
+        "market_gaps_identified": [
+          "Potential need for in-person assistance or simplified digital communication for less tech-savvy customers."
+        ],
+        "buyer_suggestions": [
+          "Buyer requested the seller to initiate the message for sending photos/videos, indicating a need for simplified communication."
+        ],
+        "competitive_advantages_needed": [
+          "Offering more accessible ways for customers to communicate issues, especially for those with limited digital literacy."
+        ]
+      },
+      "negotiation_dynamics": {
+        "negotiation_present": false,
+        "negotiation_intensity": "none",
+        "buyer_behavior": "questioning",
+        "seller_flexibility": "high",
+        "discount_requested_percent": 0,
+        "discount_offered_percent": 0,
+        "negotiation_outcome": "successful"
+      }
+    },
+    "csv_metadata": {
+      "buyer_identifier": "144315115",
+      "seller_identifier": "8227365",
+      "pns_call_recording_url": "https://openapi.airtel.in/gateway/airtel-xchange/callv2/recording?token=VhTwEUPPhLyntG2tQmXZdoabIalEuqtJ4CQrnrdx60LZNP94H4y9GqrSajos0TS0 P JpohZYsrjM6aMxxPSEL mTHsM mJlIvg37/ QtoJsgRp 3CtKDba6WJAFAseS",
+      "mcat_id_x": "1546",
+      "mcat_name": "Label Printing Machines",
+      "pns_call_record_started_at": "15:24:50",
+      "pns_call_record_ended_at": "15:25:58",
+      "call_duration": "68",
+      "pns_call_caller_city_id": "70469",
+      "city_name": "New Delhi",
+      "state_name": "Delhi",
+      "pns_custtype_id": "1",
+      "pns_call_modrefname": "Watch dial Printing machine",
+      "pns_call_source_modid": "IMOB",
+      "seller_vintage_days": "4378",
+      "pns_call_ring_duration": "11",
+      "mcat_id_y": "1546",
+      "url": "https://openapi.airtel.in/gateway/airtel-xchange/callv2/recording?token=VhTwEUPPhLyntG2tQmXZdoabIalEuqtJ4CQrnrdx60LZNP94H4y9GqrSajos0TS0 P JpohZYsrjM6aMxxPSEL mTHsM mJlIvg37/ QtoJsgRp 3CtKDba6WJAFAseS",
+      "gcs_path": "gs://im-model-product/pns/bf630ecb436b063e51840416cd8dcca3970f09410b5ad2bc66c86ade1691e97b.mp3",
+      "Audio_url": "https://storage.googleapis.com/im-model-product/pns/bf630ecb436b063e51840416cd8dcca3970f09410b5ad2bc66c86ade1691e97b.mp3?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=mayank-docker%40model-product.iam.gserviceaccount.com%2F20251212%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20251212T093137Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=1b2d41864c3775295b97b4f7668317910f1363ede6d63f3506713147ac52d86095463c74ba416f115f496ee4002dff8cc84d5508deeef594b92abb83252b79d499069b38cf5626fa6e28e8f48aba62a117b20796da87254ddd100cd3e8f59049bdb75dafd07426044248dd92d1d13a32e70e02d4b9c48c51d240d29ddc5e97869e4ca8d1f61c78b8a184c70cbc81911f7e77b46e5ca5d6b601512d4bd72c822b4d003d0f6dedf1426f03d15cf18464deffcf00f65b00cb4868c5ddca6c5d3af371d5592528182f5bf18cc9f3d27f438f45f7f185e244f788e3dbeff26195c3504f04a6478adfece3307be2cc1eb89fb129f0347749097594eeb360089186a37e"
+    }
+  },
+  {
+    "id": "call_1765608159864",
+    "filename": "url_audio",
+    "timestamp": "2025-12-13T06:42:39.864Z",
+    "duration_seconds": 29,
+    "transcript": "Seller: Hello\nBuyer: Hanji\nBuyer: Ye Skyline se bol rahe hain?\nSeller: Hanji sir hanji\nBuyer: Achha\nBuyer: Sir ye kon printing machine hoti hai level wali hoti hai?\nSeller: Kya cheez?\nBuyer: Ye level printing machine hoti hai ya kon si hoti hai aapke paas?\nSeller: Ha ye sticker printer hi hoti hai jo online mein use hoti hai\nBuyer: Sticker wali hoti hai\nSeller: E-commerce wali\nBuyer: E-commerce wali theek hai\nBuyer: Aap apna number denge sir?\nSeller: Likhiye 9950\nBuyer: 9950\nSeller: 440\nBuyer: 44\nSeller: 0\nBuyer: 0\nSeller: 506\nBuyer: 506\nSeller: Ji\nBuyer: Theek hai sir\nSeller: Hmm",
+    "analysis": {
+      "category": "Machinery",
+      "deal_status": "Follow-up",
+      "objection_type": "None",
+      "buyer_intent_score": 8,
+      "missing_specs": [],
+      "summary": "The buyer inquired about a printing machine, specifically asking if it was a 'level' (likely 'label') printer. The seller clarified it's a sticker printer used for e-commerce. The buyer then requested the seller's contact number, which was provided.",
+      "seller_id": "Unknown",
+      "buyer_id": "Unknown",
+      "product": "Sticker Printer (E-commerce)",
+      "price_discussion": {
+        "final_price": "Not discussed",
+        "currency": "INR"
+      },
+      "language_analysis": {
+        "primary_language": "Hindi",
+        "language_barriers": "None",
+        "translation_needed": "No"
+      },
+      "responsiveness_analysis": {
+        "background_noise_level": "low",
+        "call_quality_issues": [],
+        "seller_tone": "professional",
+        "response_delays": "none",
+        "call_engagement": "moderately_engaged"
+      },
+      "demand_gap_analysis": {
+        "unmet_requirements": [],
+        "market_gaps_identified": [],
+        "buyer_suggestions": [],
+        "competitive_advantages_needed": []
+      },
+      "negotiation_dynamics": {
+        "negotiation_present": false,
+        "negotiation_intensity": "none",
+        "buyer_behavior": "questioning",
+        "seller_flexibility": "not applicable",
+        "discount_requested_percent": 0,
+        "discount_offered_percent": 0,
+        "negotiation_outcome": "not applicable"
+      }
+    },
+    "csv_metadata": {
+      "buyer_identifier": "160525625",
+      "seller_identifier": "40968015",
+      "pns_call_recording_url": "https://openapi.airtel.in/gateway/airtel-xchange/callv2/recording?token=rMEJPXXwlRIyqeOnlTEVLzI8eFMmxZOojob4Q0FGz8AyAeFBKQyhpKmcMFNaV4RCpHq1b6lPbZmGm/LDpfpjQ k4siHTILn9gkHH4ndxfBzxQQQrPAlsRQpImVcgwjUG",
+      "mcat_id_x": "1546",
+      "mcat_name": "Label Printing Machines",
+      "pns_call_record_started_at": "15:27:11",
+      "pns_call_record_ended_at": "15:28:17",
+      "call_duration": "65",
+      "pns_call_caller_city_id": "70676",
+      "city_name": "Jodhpur",
+      "state_name": "Rajasthan",
+      "pns_custtype_id": "1",
+      "pns_call_modrefname": "Wash Care Label Printing Machines",
+      "pns_call_source_modid": "IMOB",
+      "seller_vintage_days": "2420",
+      "pns_call_ring_duration": "8",
+      "mcat_id_y": "1546",
+      "url": "https://openapi.airtel.in/gateway/airtel-xchange/callv2/recording?token=rMEJPXXwlRIyqeOnlTEVLzI8eFMmxZOojob4Q0FGz8AyAeFBKQyhpKmcMFNaV4RCpHq1b6lPbZmGm/LDpfpjQ k4siHTILn9gkHH4ndxfBzxQQQrPAlsRQpImVcgwjUG",
+      "gcs_path": "gs://im-model-product/pns/408991b0e13c036580a92c4d1f8a8370cb02f3779dab930a4c3fd14e2fd2a486.mp3",
+      "Audio_url": "https://storage.googleapis.com/im-model-product/pns/408991b0e13c036580a92c4d1f8a8370cb02f3779dab930a4c3fd14e2fd2a486.mp3?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=mayank-docker%40model-product.iam.gserviceaccount.com%2F20251212%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20251212T093125Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=7cc3a45fc8e6e6c7147bef197fba4493f2d47bbd9bde8513a46c372a9880501f060d6c632206057e44b021dba7b355b792daa56663e13fb65ee3372ca6e55a01781280af82fd4da7c885650445354781ae3fca02f68ebbef727a8f6a9dd5f2535c751577355f53961c12d74b4a9daf0c2c8b4d36f525ec68fb7e5dfb81a825aa77ca39375bca0273f88164d516f75369accaaf467dd876fc3acbc6b38c8c595250a96fde446ef3d9ff5f72bd025b4f36fae81e9f316c0c0401ebb040addfd71244e8d74672a595bcdb268238728b37a76218f4715ca0caa3db0b893009ea817130cd8ed4da903118ae8e5409c7ea4769b40245d914c59b6beb1413153fdc095e"
+    }
+  },
+  {
+    "id": "call_1765608146646",
+    "filename": "url_audio",
+    "timestamp": "2025-12-13T06:42:26.646Z",
+    "duration_seconds": 120,
+    "transcript": "Seller: हेलो।\nBuyer: हेलो।\nSeller: हां।\nBuyer: अ मैम, लाइक सो लेवल प्रिंटिंग मशीन में डील करते हैं क्या आप?\nSeller: लेवल प्रिंटिंग मशीन।\nBuyer: हां जी।\nSeller: हां हां।\nBuyer: मैम उसके लिए कुछ जानकारी चाहिए थी तो पूछना था।\nSeller: हां।\nBuyer: तो मैम मेरा स्टार्टअप है तो मैं ये प्रोजेक्ट लगाना चाह रहा था।\nSeller: ओके।\nBuyer: जयपुर में।\nSeller: अच्छा।\nBuyer: तो ये कितने का है मैम प्रोजेक्ट?\nSeller: ये आपको क्या मतलब या आपको यूज़ चाहिए या मतलब आपको न्यू चाहिए?\nBuyer: यूज़्ड।\nSeller: यूज़्ड। अच्छा। ये मतलब ये वाला जो प्रिंटर है ये कौन सा में है मतलब है? जर्मन जर्मन में है या ऐसे?\nBuyer: अ यूवी।\nSeller: यूवी। कौन सा कंपनी है कौन सा?\nBuyer: हां जी।\nSeller: ये कौन सा कंपनी है यूवी?\nBuyer: नहीं मैंने पूछना है आपसे आप ही बताएंगे कौन सा कंपनी है आपके पास?\nSeller: हम लोग हम लोग जर्मन में एक जो यूज़ में होता है वो हम लोग से डील करते हैं।\nBuyer: तो आपका ऑफिस कहां है मैम?\nSeller: हमारा गुरुग्राम में है, गुरुग्राम में।\nBuyer: गुरुग्राम में कहां पे?\nSeller: हां। गुरुग्राम में सेक्टर नाइन।\nBuyer: गुरुग्राम में सेक्टर नाइन। हां हां। ये फरीदाबाद से कितना दूर पड़ता है?\nSeller: गुरुग्राम से फरीदाबाद से पड़ेगा कम से कम एक घंटा के आसपास।\nBuyer: एक घंटे के आसपास। हां हां। ओके। तो और आप पे कोई?\nSeller: हां जी।\nBuyer: हां आप जो है आप सर का नंबर मैं आपको मतलब ये कर देती हूं यहां पे।\nBuyer: मेरा नंबर नोट कर लीजिए मेरे को व्हाट्सएप कर दीजिए।\nSeller: हां हां। आपका नंबर है?\nBuyer: 94\nSeller: 94\nBuyer: 609\nSeller: 609\nBuyer: हां जी।\nSeller: 609\nBuyer: 38\nSeller: 38\nBuyer: 666\nSeller: 666\nBuyer: 666।\nSeller: हां 666। ठीक है। आपका नाम?\nBuyer: नितेश।\nSeller: नितेश।\nBuyer: नितेश गुप्ता।\nSeller: ठीक है मैं ये आपको व्हाट्सएप कर रही हूं उनका नंबर। ऐसे वो शर्मा है उनका नंबर आप उनसे बात कर लीजिए व्हाट्सएप में।\nBuyer: ओके मैम। थैंक यू।\nSeller: ओके।",
+    "analysis": {
+      "category": "Machinery",
+      "deal_status": "Follow-up",
+      "objection_type": "None",
+      "buyer_intent_score": 7,
+      "missing_specs": [
+        "Specific models or brands of used UV label printing machines",
+        "Pricing for used label printing machines"
+      ],
+      "summary": "The buyer is looking for a used UV label printing machine for a new startup project in Jaipur. The seller deals in German-made used machines and has an office in Gurugram. The seller provided a contact number for further discussion.",
+      "seller_id": "Unknown",
+      "buyer_id": "Nitesh Gupta",
+      "product": "Label Printing Machine (UV, used)",
+      "price_discussion": {
+        "final_price": "Not discussed",
+        "currency": "INR"
+      },
+      "language_analysis": {
+        "primary_language": "Hindi",
+        "language_barriers": "None",
+        "translation_needed": "No"
+      },
+      "responsiveness_analysis": {
+        "background_noise_level": "medium",
+        "call_quality_issues": [
+          "background traffic noise"
+        ],
+        "seller_tone": "professional",
+        "response_delays": "none",
+        "call_engagement": "moderately_engaged"
+      },
+      "demand_gap_analysis": {
+        "unmet_requirements": [
+          "Specific brands or models of UV label printing machines",
+          "Detailed pricing information for used machines"
+        ],
+        "market_gaps_identified": [
+          "Clearer inventory of used machines with specifications and pricing"
+        ],
+        "buyer_suggestions": [],
+        "competitive_advantages_needed": [
+          "A readily available catalog or list of used machines with detailed specs and prices to share with potential buyers."
+        ]
+      },
+      "negotiation_dynamics": {
+        "negotiation_present": false,
+        "negotiation_intensity": "none",
+        "buyer_behavior": "questioning",
+        "seller_flexibility": "rigid",
+        "discount_requested_percent": 0,
+        "discount_offered_percent": 0,
+        "negotiation_outcome": "stalemate"
+      }
+    },
+    "csv_metadata": {
+      "buyer_identifier": "61884788",
+      "seller_identifier": "68139283",
+      "pns_call_recording_url": "https://openapi.airtel.in/gateway/airtel-xchange/callv2/recording?token=2voW2SRhEv0Jgi/lBMhJJTI8eFMmxZOojob4Q0FGz8DrkiocutIMic/g zWPp86HZjI hnqBKVnFYBIZR4PkPj8FMAY4Ogp9eBmA5 8BS5nxQQQrPAlsRQpImVcgwjUG",
+      "mcat_id_x": "1546",
+      "mcat_name": "Label Printing Machines",
+      "pns_call_record_started_at": "13:28:06",
+      "pns_call_record_ended_at": "13:31:11",
+      "call_duration": "184",
+      "pns_call_caller_city_id": "90786",
+      "city_name": "Sri Ganganagar",
+      "state_name": "Rajasthan",
+      "pns_custtype_id": "1",
+      "pns_call_modrefname": "Label Printing Machines by Nilpeter",
+      "pns_call_source_modid": "ANDWEB",
+      "seller_vintage_days": "2245",
+      "pns_call_ring_duration": "21",
+      "mcat_id_y": "1546",
+      "url": "https://openapi.airtel.in/gateway/airtel-xchange/callv2/recording?token=2voW2SRhEv0Jgi/lBMhJJTI8eFMmxZOojob4Q0FGz8DrkiocutIMic/g zWPp86HZjI hnqBKVnFYBIZR4PkPj8FMAY4Ogp9eBmA5 8BS5nxQQQrPAlsRQpImVcgwjUG",
+      "gcs_path": "gs://im-model-product/pns/e17a5cbe131aac934007e37905ae7bd3bbf23d05f9e160139afbf90fe07c3c55.mp3",
+      "Audio_url": "https://storage.googleapis.com/im-model-product/pns/e17a5cbe131aac934007e37905ae7bd3bbf23d05f9e160139afbf90fe07c3c55.mp3?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=mayank-docker%40model-product.iam.gserviceaccount.com%2F20251212%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20251212T093123Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=34917c012377f50ab0acc4978097a682298a8e256d0c1c4065e4c589bce8761191016724db5c194c40f73b7a90785d8ec5f0bdafe37a840cb9b7ec009f12029503ff08e2a7684394466b05af0620d6591fe7fd41e2bfb4d9d6d02ea9c31372dac691a9123bcb6c19c90d70df0620e1921ecec000e25b348075f7db470d4d5300d494a3aeed0c07cc301dd15849dece44debc7f6c51f44690a4c9a5c318749486f59ec4dc361260b20e30992063ad39906066410c5dd91f6a0fbc260fc4b5334e78f753954dabdfd6b773d30466870bb82828e26f72f6b18ed1426e8d441833c69a0a1bdda06a2971671d73e6093632cc20cca0132126cf96f7473cbc1676970a"
+    }
+  },
+  {
+    "id": "call_1765608127976",
+    "filename": "url_audio",
+    "timestamp": "2025-12-13T06:42:07.976Z",
+    "duration_seconds": 120,
+    "transcript": "Seller: ஹலோ. ஹலோ.\nBuyer: ஹ சொல்லுங்க.\nSeller: சார் இது சாட்டின் லேபல் பிரிண்டிங் மெஷின்ஸ் பண்றீங்களா சார்?\nBuyer: ஆமா ஆமா ஆமா.\nSeller: இந்த திருப்பூர்ல எங்க சார் இருக்கு உங்க ஆபீஸ்?\nBuyer: இங்க சாமி தியேட்டர் இருக்கு இல்லைங்களா? சாமி தியேட்டர் பக்கத்துல இருக்குது.\nSeller: அப்படியா? சரி சரி சரி. சிங்கிள் கலர் பேக் சைடு லேபல் அடிக்கிற மாதிரி மெஷின் என்ன பிரைஸ் வரும் சார்?\nBuyer: மினிமம் அதாவது வந்து பேசிக் பேசிக் மாடல் வந்து பாத்தீங்கன்னா 2+1ங்க. பிரண்ட் ரெண்டு கலர் பேக் ஒரு கலர் அடிக்கும். அதான் வந்து பேசிக் மாடல் அது.\nSeller: சரிங்க சார். சாட்டின் லேபல். அதுல இருந்து பாத்தீங்கன்னா எட்டு கலர் வரைக்கும் இருக்குங்க மெஷின்.\nBuyer: இல்ல இல்ல 2+1 அது அது மட்டும் சொல்லுங்க சார் பேசிக். எனக்கு சிங்கிள் கலர் தான் டாப் சிங்கிள் கலர் தான் பேக் சிங்கிள் கலர் தான்.\nSeller: ஓ பிரண்ட் ஒரு கலர் பேக் ஒரு கலர் வருது இல்லைங்களா?\nBuyer: ஆமா ஆமா. நீங்க பிரண்ட் ரெண்டு கலர் வரும் பேக் ஒரு கலர் வரும்ங்கிறீங்க சார்.\nSeller: ஆமா ஆமா.\nBuyer: பேசிக் மாடல்ல. அது என்ன பிரைஸ் வரும் சார்?\nBuyer: 8 லட்சத்தி 10 ஆயிரம் பிளஸ் ஜிஎஸ்டி வரும்ங்க.\nSeller: ஓ எட்டு பத்து வரும் ஆமா.\nBuyer: ஆமா ஆமா. நான் நினைச்சேன் ரொம்ப கம்மியா இருக்கும்னு தான் நான் கேட்டேன். 3 லாக்ஸ் 4 லாக்ஸ்ல வரும்னு.\nSeller: ஓகே ஓகே சரிங்க. அது வந்து ஃப்ளெக்ஸோ மெஷின் இது. இதுக்கு அஞ்சு செட் சிலிண்டர் வரும். அதாவது சிலிண்டர்லாம் வந்து பாத்தீங்கன்னா எப்படின்னா உங்களுக்கு என்னென்ன சைஸ் ஓட்டுறீங்களோ அஞ்சு இன்ச் ஓட்டுறீங்க லென்த் அப்படின்னா அஞ்சு இன்சுக்கு தகுந்த மாதிரி சிலிண்டர் போடணும். ஆறு இன்ச் ஓட்டுறீங்கன்னா ஆறு இன்ச் லென்த்க்கு வர மாதிரி சிலிண்டர் போடணும். சோ இதுல வந்து அஞ்சு செட் சிலிண்டர் வரும். சிலிண்டரோட சேர்த்து உங்களுக்கு அந்த காஸ்ட் வரும். அஞ்சு செட் சிலிண்டரோட.\nSeller: சரிங்க சார்.\nBuyer: எவ்வளவு ஒரு நாளைக்கு ப்ரொடக்ஷன் பண்ணலாம் சார் அது?\nSeller: பிரிண்டிங் வந்து ஒரு உதாரணத்துக்கு ஒரு ஆறு இன்ச் லேபல்னா ஒரு ஒன்றரை லட்சம் பீஸ் பண்ணலாங்க ஒரு நாளைக்கு.\nSeller: ஓ ஒரு நாளைக்கு அவ்வளவு பண்ணலாங்களா?\nBuyer: ஆமா ஆமா ஒன்றரை லட்சம் பீஸ் பண்ணலாம்.\nSeller: நீங்க எங்க இருந்து பேசுறீங்க?\nBuyer: நான் இங்க அம்மாபாளையத்துல இருந்து.\nSeller: அம்மாபாளையங்களா?\nBuyer: ஆமா ஆமா.\nSeller: நீங்க என்ன பண்ணி என்ன பண்ணிட்டு இருக்கீங்க ஆல்ரெடி?\nBuyer: ஆக்சுவலா எங்களுக்கு ஆக்சுவலா எக்ஸ்போர்ட் பண்ணிட்டு இருக்கிறோம். எங்களுக்கே லேபல் ஒரு 10 லட்சம் லேபல் மாசம் தேவைப்படும். சரி அதனால கம்மிங்கறதுனால ஹாஸ்டல் தான் லேடீஸ் வச்சுக்கிறோம் இந்த மாதிரி ஒன்னு செட் பண்ணி கொடுத்துரலாமான்னு பார்த்தோம்ங்க.\nSeller: ஹாஸ்டல் தான்?\nBuyer: இல்ல இல்ல சார் லேடீஸ் இது வந்து அதுக்கு தனியா படிக்கணும்னுலாம் அவசியம் இல்லை இல்ல ஈஸியா ஒரு லேடீஸ் இருந்தா போதும்ங்க சார் ஓட்டிட்டு வாங்க இல்லைங்களா?\nSeller: மெஷின் ஓட்டுறது இல்லை எக்ஸ்பீரியன்ஸ் இருக்கிறவங்க தான் ஓட்டணும் மெஷின் ஓட்டுறதுங்க.\nBuyer: மெஷின் ஓட்டுறது அந்த கரெக்டா ஃபைன் டியூனிங்லாம் பண்ணனும் இல்லைங்களா? அது வந்து கொஞ்சம் பழகுறதுக்கு கொஞ்சம் நாள் ஆகும்ங்க. ஒரு 10 ஒரு மாசம் ட்ரைனிங் எடுத்தாங்கன்னா அப்புறமா அவங்க பண்ணிக்கலாம் ஒன்னும் பிரச்சனை இல்லை. அதுக்கு அப்புறம் முன்னாடி டிசைன் பண்ணனும்ங்க. டிசைனிங் வந்து பாத்தீங்கன்னா வெளியில கொடுத்து பண்ணிக்கலாம்ங்க டிசைனிங் கூட.\nSeller: இல்ல நமக்கு வந்து ஆக்சுவலா ஒரே டிசைன் தான் சார் வருஷம் பூரா மாசம் ஒரு 10 லட்சம் லேபல் வருது தேவைப்படுது.\nBuyer: சரி சரி சரி.\nSeller: ஒரு மொத்தமா ரெண்டு டிசைன் முன்னாடி 12 லட்சம் லேபல் தேவைப்படுது மாசம். சரி அதனால ஒரே டிசைன் ஒரே இதுதான வருஷம் பூராங்கறதுனால ஏதாவது செட் பண்ணுவோம்.\nBuyer: பிரிண்டட் லேபல் தானே?\nSeller: ஆமா ஆமா பிரிண்டட் தான் சாட்டின் பிரிண்டட் லேபல் தான்.\nBuyer: சரி ஓகே ஓகே. சோ பிரச்சனை நீங்க பிளாக் போட்டு வச்சிட்டீங்கன்னா நீங்க அதை அப்படியே கண்டினியூஸா அந்த டிசைன் வரும்போது அந்த பிளாக் எடுத்து போட்டு அப்படியே ஓட்டிக்கலாம் ஒன்னும் பிரச்சனை இல்லை ஈஸியா இருக்கும்.\nSeller: சாட்டின் ரோல் என்ன ரேட் வரும் சார் 32 mm?\nBuyer: 32 mm அகலம்ங்க.\nSeller: ஆ 32 mm.\nBuyer: 32 mmனா உங்களுக்கு சிங்கிள் சைடு சாட்டினா டபுள் சைடு சாட்டினா ஓவன் எட்ஜ் சாட்டினா நிறைய இருக்குது அதுல.\nSeller: இல்ல இல்ல டபுள் சைடு சாட்டின் சார்.\nBuyer: டபுள் சைடு சாட்டின் பேண்ட் ஆமா ஆமா.\nSeller: டபுள் சைடு சாட்டின்னா உங்களுக்கு 30 டபுள் சைடு பிரிண்ட் அடிக்கிற மாதிரி வரும்.\nBuyer: 30 ரவுண்ட் வந்து பாத்தீங்கன்னா ஒரு 320 ரூபாய் வரும்ங்க.\nSeller: இங்க திருப்பூர்ல எங்க யார் சார் டீலர் அது?\nBuyer: இங்க நிறைய இருக்காங்களே இந்த ஜூபிட்டர்ல இருக்காங்க இல்ல இதுல இருக்காங்க இந்த எஸ்கே ட்ரேடர்ஸ்னு இருக்காங்க கேரளா குயின் ட்ரேடர்ஸ்னு இருக்காங்க.\nSeller: எங்க சார் மெயின் யாரு ரெண்டு பேர் நேம் சொல்லுங்க சார் ஏன்னா நான் அனலைஸ் பண்ணிட்டு பிரைஸ் ஓகேனா எடுத்துக்கிறேன். பிரைஸ் சூப்பரா இருக்கும்.\nBuyer: அதான் கேரளா குயின் ட்ரேடர்ஸ்னு ஒன்னு இருக்குது.\nSeller: கேரளா?\nBuyer: குயின்.\nSeller: குயின் எங்க இருக்குங்க சார்?\nBuyer: இங்க இதுகிட்ட இருக்குங்க சாமி தியேட்டர் இருக்கு இல்லைங்களா சோழர் காம்ப்ளக்ஸ்ல.\nSeller: ஆமாங்க சார்.\nBuyer: அங்க இருக்கு. அப்புறம் இந்த எஸ்கே ட்ரேடர்ஸ்னு சொல்லி இந்த எல்ஜி ஷோரூம் இருந்துச்சு இல்லைங்களா 60 அடி ரோட்ல.\nSeller: ஆமாங்க சார்.\nBuyer: ஆ அந்த கட்டடத்துல உள்ள இருக்குது. அந்த கட்டடத்துல உள்ள போனீங்கன்னா லெப்ட் சைடுல இருக்குது.\nSeller: எஸ்கே ட்ரேடர்ஸ் சார் சரிங்க சார்.\nBuyer: ஆமா ஆமா.\nSeller: நான் உங்க நம்பர் சொல்லுங்க நான் உங்க நம்பருக்கு அவங்க நம்பர் மெசேஜ் பண்றேன் உங்களுக்கு.\nBuyer: ஆ என் நம்பர் 63801.\nSeller: 63801.\nBuyer: 62.\nSeller: 62.\nBuyer: 37.\nSeller: 37.\nBuyer: 9.\nSeller: உங்க பேர் என்ன?\nBuyer: செந்தில்ங்க.\nSeller: செந்தில் ஓகே.\nBuyer: நான் அவங்க நம்பர் வேணா உங்களுக்கு வாட்ஸ்அப் பண்றேன் அவங்ககிட்ட.\nSeller: அஞ்சு அஞ்சு பேர் நம்பர் கொடுங்க நான் போய் பார்க்கிறேன் என்ன பிரைஸ்ல வருதுன்னு பார்த்துட்டு மெஷின்ல ஓட்டுனா நமக்கு ஒர்க் அவுட் ஆகும்னா நான் எடுத்துக்கிறேன் சார். பிரைஸ் தான் சார் நீங்க பெஸ்ட் பிரைஸ் ஏதாவது பண்ண முடியுமா எனக்கு அந்த 2+1 பேசிக் மாடல் இருந்தாலே போதும்.\nBuyer: சரி சரி சரி.\nSeller: நீங்க அப்ப நான் உங்களுக்கு மெஷின் டீடைல் எல்லாம் அனுப்பிச்சிருக்கிறேன் வாட்ஸ்அப் பண்றேன் பாருங்க.\nBuyer: ஆ அனுப்பிச்சு விடுங்க.\nSeller: சரி ஓகே ஓகே.\nSeller: ஆமா.",
+    "analysis": {
+      "category": "Textile Machinery",
+      "deal_status": "Follow-up",
+      "objection_type": "Price",
+      "buyer_intent_score": 8,
+      "missing_specs": [],
+      "summary": "The buyer inquired about a satin label printing machine, specifically a 1+1 color model, expecting a price around 3-4 lakhs. The seller quoted 8.1 lakhs + GST for their basic 2+1 color flexo machine, detailing its production capacity and cylinder requirements. The buyer, who needs 10-12 lakh labels monthly for their export business, expressed concern about the price and requested contacts for local material suppliers, indicating a need for further evaluation before making a decision.",
+      "seller_id": "Senthil",
+      "buyer_id": "Unknown",
+      "product": "Satin Label Printing Machine (Flexo, 2+1 color)",
+      "price_discussion": {
+        "quoted_price": "8,10,000 INR + GST",
+        "buyer_expected_price": "3,00,000 - 4,00,000 INR",
+        "final_price": "Not discussed",
+        "currency": "INR"
+      },
+      "language_analysis": {
+        "primary_language": "Tamil",
+        "language_barriers": "None",
+        "translation_needed": false
+      },
+      "responsiveness_analysis": {
+        "background_noise_level": "low",
+        "call_quality_issues": [],
+        "seller_tone": "professional",
+        "response_delays": "none",
+        "call_engagement": "highly_engaged"
+      },
+      "demand_gap_analysis": {
+        "unmet_requirements": [
+          "Buyer initially requested a true 1+1 color machine, but the basic model offered is 2+1.",
+          "Buyer's price expectation (3-4 lakhs) is significantly lower than the quoted price (8.1 lakhs + GST)."
+        ],
+        "market_gaps_identified": [
+          "Potential market for more basic, lower-cost (3-4 lakhs) 1+1 color satin label printing machines.",
+          "Need for machines that are easier to operate for less experienced staff (e.g., women from a hostel, as mentioned by buyer)."
+        ],
+        "buyer_suggestions": [],
+        "competitive_advantages_needed": [
+          "Offer a more cost-effective basic model (possibly a true 1+1 configuration).",
+          "Highlight ease of use or provide more extensive training for new operators."
+        ]
+      },
+      "negotiation_dynamics": {
+        "negotiation_present": true,
+        "negotiation_intensity": "low",
+        "buyer_behavior": "questioning, price-sensitive, practical (focused on specific needs and cost-effectiveness)",
+        "seller_flexibility": "low",
+        "discount_requested_percent": 0,
+        "discount_offered_percent": 0,
+        "negotiation_outcome": "stalemate"
+      }
+    },
+    "csv_metadata": {
+      "buyer_identifier": "246215970",
+      "seller_identifier": "11269125",
+      "pns_call_recording_url": "https://openapi.airtel.in/gateway/airtel-xchange/call/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspMpCDKkeumGt 4DsOhRB9n5qsXEUaJxsRa kK00KvfjaRugpV92OSUwfWlWaUnwrWGPMsdfY8uoIvrL4CirTug6",
+      "mcat_id_x": "1546",
+      "mcat_name": "Label Printing Machines",
+      "pns_call_record_started_at": "12:35:02",
+      "pns_call_record_ended_at": "12:40:43",
+      "call_duration": "340",
+      "pns_call_caller_city_id": "84025",
+      "city_name": "Tiruppur",
+      "state_name": "Tamil Nadu",
+      "pns_custtype_id": "1",
+      "pns_call_modrefname": "Anilox flexo satin label printing machine",
+      "pns_call_source_modid": "DIR",
+      "seller_vintage_days": "414",
+      "pns_call_ring_duration": "8",
+      "mcat_id_y": "1546",
+      "url": "https://openapi.airtel.in/gateway/airtel-xchange/call/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspMpCDKkeumGt 4DsOhRB9n5qsXEUaJxsRa kK00KvfjaRugpV92OSUwfWlWaUnwrWGPMsdfY8uoIvrL4CirTug6",
+      "gcs_path": "gs://im-model-product/pns/af84f5e1cc6d7db535dc76d2258ef64ba73121091c0d58f7edc47538260532e4.mp3",
+      "Audio_url": "https://storage.googleapis.com/im-model-product/pns/af84f5e1cc6d7db535dc76d2258ef64ba73121091c0d58f7edc47538260532e4.mp3?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=mayank-docker%40model-product.iam.gserviceaccount.com%2F20251212%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20251212T093046Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=2ba620ff472bf9ba1cc8590f9e696746ec0ebb0b5b6b866115ba8e47e9bf0ae711c637b67b7a14d7a742f375e8dc8d852e1263d2a73ed35589f726c9c519e8ca25d5c65581f3304617ac31f2b8e2e6bc8122cf8a7cfb9d01c769ee4b0341005906448fb22b22fe1244ce0d55b0dc674580e7cc87964d83b0992463b41da8c1a2fe2e6ddc2d8546e63febf85a9b5b2dc2f92d255854f448770b558ddf4b8548bb7ee4b3681be4f5c4ada9c7560d618f9c8f0e0e113da90c2154beda64549d355265fa77770417faecf69f78b7254946f41cbfb8f25bccca4d53aa2c789cc256bd4531df397857bc9b2762dec1906fb5a1dec94e49614a481c2e790e5022b7b107"
+    }
+  },
+  {
+    "id": "call_1765608096149",
+    "filename": "url_audio",
+    "timestamp": "2025-12-13T06:41:36.149Z",
+    "duration_seconds": 167,
+    "transcript": "Seller: हेलो।\nBuyer: हां जी, ये इसमें मशीन में डील करते हैं आप इस केट।\nSeller: प्रिंटर मशीन में करते हैं।\nBuyer: करते हैं। तो ये जो अपने गारमेंट्स में काम आते हैं साटिन के। वो प्रिंट होते हैं इस पे?\nSeller: नहीं साटिन के भी हो जाते हैं। वैसे ज्यादातर टाफा यूज लेते हैं हम।\nBuyer: ज्यादातर साटिन पे होता है पर वो इंप्रेशन बिल्कुल इतना डार्क नहीं आता।\nBuyer: तो साटिन के लिए कौन डील करता है? मैंने तो आपको इंडिया मार्ट पे देखा था। साटिन।\nSeller: नहीं नहीं सर आपने देख रहे हो बट वो साटिन में क्या होता है कि इंप्रेशन थोड़ा सा लाइट इंप्रेशन आता है प्रिंटिंग तो हो जाती है।\nBuyer: नहीं मगर मेरे पास जो सैंपल है वो तो बहुत बढ़िया है।\nSeller: सैंपल फिर वो वाला होगा सर प्रिंट किया हुआ डार्क वाला।\nBuyer: अच्छा तो आप कहां कौन सी सिटी में है आप?\nSeller: जयपुर से बोल रहा हूं सर मैं।\nBuyer: जयपुर से है ना?\nSeller: हां जी सर।\nBuyer: तो इस पे तो प्रिंटिंग तो अच्छी है। जो मेरे पास सैंपल्स हैं।\nSeller: नहीं उसके लिए उसके अंदर दो चीज होती है कि तो साटिन उस क्वालिटी का होना चाहिए। जिस पे टाफा भी अच्छा चलेगा।\nBuyer: अच्छा। हां। तो प्रिंटिंग तो ले लेंगे बढ़िया।\nSeller: हां हां बहुत बढ़िया।\nBuyer: तो साटिन साटिन वगैरह में और छोटे रोल में कौन कौन डील करता है? वो भी आप डील करते हैं इसमें?\nSeller: सब सब सब सब चीज में डील करते हैं।\nBuyer: हां। तो रिप्रेजेंटेटिव है मैं दिखा पाऊंगा यहां। आदमी देख ले क्या हो सकता है नहीं हो सकता।\nSeller: हां सर।\nBuyer: जयपुर में यहां। जयपुर में यहां हतरोई अजमेर रोड पे।\nSeller: नहीं वो मशीन वहां नहीं जाती सर। मशीन तो आपको परचेज करनी पड़ेगी वो आपके सामने खुलती है।\nBuyer: हां वो ठीक है मगर डेमो तो होगा ना पहले?\nSeller: डेमो नहीं होता सर।\nBuyer: डेमो नहीं होता।\nSeller: नहीं।\nBuyer: ठीक ठीक फिर वो क्वालिटी निकले ना निकले।\nSeller: नहीं वो तो हम आपको दिखा देंगे जैसे अगर आप ऑफिस आते हो तो मैं आपको यहां पर दिखा दूंगा कि ये।\nBuyer: कहां पे है अपना ऑफिस?\nSeller: यहां वैशाली नगर में ही है सर क्वींस रोड पे।\nBuyer: अच्छा यहीं वैशाली नगर में है।\nSeller: हां जी हां जी। आप गारment में ही करते हो?\nBuyer: हां मुझे सप्लाई करना है। ये दो तीन तरह के टैग हैं एक तो बारकोडिंग के हैं।\nBuyer: हां। और मैं आपको फोटो भेजूं इसकी?\nSeller: हां नहीं फोटो डाल दो मैंने आपको हाय लिख के भेजा है।\nBuyer: अच्छा भेज दिया। मतलब आप टैग वगैरह ये लेबल वगैरह करते हो ना?\nSeller: हां हां बिल्कुल बिल्कुल।\nBuyer: ये आ गया ना मैं फोटो आया ना मेरा आपके पास?\nSeller: मैंने आपको कुछ डाला है सर।\nBuyer: अच्छा। ठीक।\nSeller: एक बार आप।\n",
+    "analysis": {
+      "category": "Machinery, Textiles, Printing Services",
+      "deal_status": "Follow-up",
+      "objection_type": "Quality, Demo availability",
+      "buyer_intent_score": 8,
+      "missing_specs": [
+        "Specific details/specs for printing on small satin rolls",
+        "Technical specifications of the printer machine",
+        "Pricing for the machine or services"
+      ],
+      "summary": "The buyer, interested in printer machines for garment tags (satin, barcode), contacted the seller after seeing them on IndiaMart. The seller, based in Jaipur, clarified that while satin printing is possible, quality depends on the satin material, and they primarily use 'tafa'. They do not offer on-site demos but invited the buyer to their Vaishali Nagar office to see samples and discuss further, confirming they deal in all types of tags and labels.",
+      "seller_id": "Unknown",
+      "buyer_id": "Unknown",
+      "product": "Printer machine for garment tags (satin, tafa), barcode tags, labels, small rolls",
+      "price_discussion": {
+        "final_price": "Not discussed",
+        "currency": "INR"
+      },
+      "language_analysis": {
+        "primary_language": "Hindi",
+        "language_barriers": "None",
+        "translation_needed": "No"
+      },
+      "responsiveness_analysis": {
+        "background_noise_level": "medium",
+        "call_quality_issues": [
+          "Background noise on seller's side"
+        ],
+        "seller_tone": "professional/engaging",
+        "response_delays": "No notable delays",
+        "call_engagement": "highly_engaged"
+      },
+      "demand_gap_analysis": {
+        "unmet_requirements": [
+          "On-site demo for the machine at the buyer's location"
+        ],
+        "market_gaps_identified": [
+          "Opportunity for machines specifically optimized for dark satin printing",
+          "More detailed material compatibility guides or demonstrations"
+        ],
+        "buyer_suggestions": [],
+        "competitive_advantages_needed": [
+          "Offering on-site demos or comprehensive remote demonstrations/videos"
+        ]
+      },
+      "negotiation_dynamics": {
+        "negotiation_present": false,
+        "negotiation_intensity": "none",
+        "buyer_behavior": "questioning/collaborative",
+        "seller_flexibility": "low",
+        "discount_requested_percent": 0,
+        "discount_offered_percent": 0,
+        "negotiation_outcome": "stalemate"
+      }
+    },
+    "csv_metadata": {
+      "buyer_identifier": "180474",
+      "seller_identifier": "40968015",
+      "pns_call_recording_url": "https://openapi.airtel.in/gateway/airtel-xchange/call/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspP8fPjk3kFCHMVIySaKTJ4rcayGwvVVdyukFTqzEDFbNwqzyw4EwXKqbbak6u7afoWPMsdfY8uoIvrL4CirTug6",
+      "mcat_id_x": "1546",
+      "mcat_name": "Label Printing Machines",
+      "pns_call_record_started_at": "10:42:19",
+      "pns_call_record_ended_at": "10:45:14",
+      "call_duration": "174",
+      "pns_call_caller_city_id": "70672",
+      "city_name": "Jaipur",
+      "state_name": "Rajasthan",
+      "pns_custtype_id": "1",
+      "pns_call_modrefname": "Wash Care Label Printing Machines",
+      "pns_call_source_modid": "ANDROID",
+      "seller_vintage_days": "2243",
+      "pns_call_ring_duration": "7",
+      "mcat_id_y": "1546",
+      "url": "https://openapi.airtel.in/gateway/airtel-xchange/call/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspP8fPjk3kFCHMVIySaKTJ4rcayGwvVVdyukFTqzEDFbNwqzyw4EwXKqbbak6u7afoWPMsdfY8uoIvrL4CirTug6",
+      "gcs_path": "gs://im-model-product/pns/c6245992f9f36d7e3200199b2665de31e8d8e84cb83a122102102da4f4b15d96.mp3",
+      "Audio_url": "https://storage.googleapis.com/im-model-product/pns/c6245992f9f36d7e3200199b2665de31e8d8e84cb83a122102102da4f4b15d96.mp3?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=mayank-docker%40model-product.iam.gserviceaccount.com%2F20251212%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20251212T093039Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=0234de2c9357d545117862aa262bf8905d4cf58f45a4c130acc43061e8d4f49a0198c7ef7b4f60965b6100476fe10a8d50ad2db0d5bf997bc9eac36882fa187a19248fadaf37f2c7bcd11197ee6892d7289fe529ff2ef76a7bc53b096a0a4ca0140abadc83db78faf6e4ce1246c551c942010059c5409f998d9c5c4d16cae3c5eaef352691a8f4dc0e393c7381deaa29d600130b3be49ceed152db9e1ab37dbeac999aac01b41a06222f46ea58ce2f1c3bc82a507276f0a1869fc55f81690080c933ca1cf9aac856fc5d9d2af05d54612a3d9c9635a53bf2c2a6d2e1352b76938b28c2c3bc9ddbb5b5bc64cc03bd5ac34791cff38b86b7584e3fc42aded57d7c"
+    }
+  },
+  {
+    "id": "call_1765608075515",
+    "filename": "url_audio",
+    "timestamp": "2025-12-13T06:41:15.515Z",
+    "duration_seconds": 120,
+    "transcript": "Seller: हेलो। Buyer: हां बोलो। Seller: यह बताइए जो इंडिया मार्ट पे आप मशीन डाले हैं। हम्म हम्म। यह किस फैब्रिक पे आप प्लास्टिक पे प्रिंट करेगी? क्या? इंडिया मार्ट पे आपकी जो है मशीन पड़ी है। यह किस चीज पे प्रिंटिंग करती है? यह फैब्रिक पे करती है या प्लास्टिक पे? Buyer: फैब्रिक पे। Seller: फैब्रिक पे करती है यानी कपड़ों वाले पे। Buyer: हां कपड़ों पे। Seller: ओके। अगर हमें प्लास्टिक वाली चाहिए तो? Buyer: लेबल प्रिंट करना। Seller: लेबल प्रिंट करना है। वह नहीं है। आपके संपर्क में कोई? Buyer: रेंज में कोई। Seller: वह बता दो वह तो है नहीं पर। अच्छा किस रेंज तक आएगी यह तो बता दो। यह आईडिया होगा आपको कुछ? Buyer: नहीं नहीं प्लास्टिक वाली कोई नहीं पता। Seller: अरे जो वाटर बोतल पे जो चिपकी रहती है प्लास्टिक की हमको वही प्लास्टिक चाहिए। Buyer: नहीं नहीं वह नहीं है। फैब्रिक वाला है हमारा। Seller: चलो सो ओके। बाय बाय टाटा सी यू गुड नाइट।",
+    "analysis": {
+      "category": "Machinery",
+      "deal_status": "Dropped",
+      "objection_type": "Specs",
+      "buyer_intent_score": 4,
+      "missing_specs": [
+        "Plastic printing capability"
+      ],
+      "summary": "The buyer inquired about a printing machine listed on India Mart, specifically asking if it prints on fabric or plastic. The seller confirmed it prints on fabric. The buyer then expressed a need for a plastic printing machine, which the seller did not offer, leading to the call ending without a sale.",
+      "seller_id": "Unknown",
+      "buyer_id": "Unknown",
+      "product": "Printing Machine",
+      "price_discussion": {
+        "final_price": "Not discussed",
+        "currency": "INR"
+      },
+      "language_analysis": {
+        "primary_language": "Hindi",
+        "language_barriers": "None",
+        "translation_needed": "No"
+      },
+      "responsiveness_analysis": {
+        "background_noise_level": "low",
+        "call_quality_issues": [],
+        "seller_tone": "casual",
+        "response_delays": "no notable delays",
+        "call_engagement": "moderately_engaged"
+      },
+      "demand_gap_analysis": {
+        "unmet_requirements": [
+          "Machine for printing on plastic (specifically for water bottle labels)"
+        ],
+        "market_gaps_identified": [
+          "Demand for plastic printing machines"
+        ],
+        "buyer_suggestions": [],
+        "competitive_advantages_needed": [
+          "Offer a wider range of printing machines, including those for plastic."
+        ]
+      },
+      "negotiation_dynamics": {
+        "negotiation_present": false,
+        "negotiation_intensity": "none",
+        "buyer_behavior": "questioning",
+        "seller_flexibility": "rigid",
+        "discount_requested_percent": 0,
+        "discount_offered_percent": 0,
+        "negotiation_outcome": "failed"
+      }
+    },
+    "csv_metadata": {
+      "buyer_identifier": "228560577",
+      "seller_identifier": "30371857",
+      "pns_call_recording_url": "https://openapi.airtel.in/gateway/airtel-xchange/call/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspMNza52ix4M46yo0eQeolUSHkHBDRFzn4XwTNw8ZlikU 8dmagLyl3VZc0LG/s7AmqPMsdfY8uoIvrL4CirTug6",
+      "mcat_id_x": "1546",
+      "mcat_name": "Label Printing Machines",
+      "pns_call_record_started_at": "20:56:23",
+      "pns_call_record_ended_at": "20:57:51",
+      "call_duration": "87",
+      "pns_call_caller_city_id": "84186",
+      "city_name": "Ayodhya",
+      "state_name": "Uttar Pradesh",
+      "pns_custtype_id": "12",
+      "pns_call_modrefname": "HB export 1 kw Label Printing Machine",
+      "pns_call_source_modid": "IMOB",
+      "seller_vintage_days": "1491",
+      "pns_call_ring_duration": "11",
+      "mcat_id_y": "1546",
+      "url": "https://openapi.airtel.in/gateway/airtel-xchange/call/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspMNza52ix4M46yo0eQeolUSHkHBDRFzn4XwTNw8ZlikU 8dmagLyl3VZc0LG/s7AmqPMsdfY8uoIvrL4CirTug6",
+      "gcs_path": "gs://im-model-product/pns/23cd47d00c6fcc83f376726c6bf99673f58690339a962521246cea2784797de2.mp3",
+      "Audio_url": "https://storage.googleapis.com/im-model-product/pns/23cd47d00c6fcc83f376726c6bf99673f58690339a962521246cea2784797de2.mp3?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=mayank-docker%40model-product.iam.gserviceaccount.com%2F20251212%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20251212T093031Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=6c3b2bdf8c51dd8d21bb92045310df91a413557a72fa895812e40fb8ce8516e068672c33e0fdb7ec4850ca693b117b75ec0594b908b0a6a6965fcf4d9f18e4940e53831af0c8b4bd8cb7cc8cac1279e8a5d0bd38278def463ae56a1bb1f81e4a73268b3528706a0f2447c8b88bc9e7f2d25d8662922f62b41691faba3a8484caabc022cd717ae65912d09ce8dde68f6055cba04e1808684a8ec8253188584f4b2783a0e1b17c9bda56bd12ef6c2e864f97804f51faf915b194f485fd856a90459e5de865a0dd1f8b437c9635f22a5d95d3b29f119fcad07f694daa8823aff4427028df7a441c8ef051b8f5f6b9f78a18e5917b6afd107db8ab5d21fca6c0a33c"
+    }
+  },
+  {
+    "id": "call_1765608067794",
+    "filename": "url_audio",
+    "timestamp": "2025-12-13T06:41:07.794Z",
+    "duration_seconds": 120,
+    "transcript": "Buyer: Hello. Seller: Hello. Seller: Ha ji sir namaskar. Buyer: Namaste. Sir ye aap fabric label printer rakhte hain? Seller: Ye apne Buyer: kis cheez ke liye sir lenge aap? Achcha woh mera actually main main bags banata hoon. Jo apne hand bags type hote hain na? Woh bags banata hoon. Woh bag ke upar mujhe label lagana hota hai. Matlab size likhni hoti hai kabhi ya kuch code number likhna hoga. Toh woh bahut customized hota hai. Toh uske liye mujhe label banwane hain aur woh matlab label thode matlab waterproof bolo ya phir color fade na ho. Aisa type ka woh printers hamare competitors hain unke paas hai aise kuch machines. Seller: Ha ha same hi ata hai sir. Citizen ka ata hai. Citizen ka ata hai. Citizen ka ata hai sir. Uska aaram se easily aapka jo customized karke print kar sakte hain. Uska print kar lenge aap. Buyer: Achcha, achcha. Toh uska kya sir detail thoda sa mere ko aap bhejenge? Kya costing hoti hai? Kya hota hai? Seller: Details sir main aapko WhatsApp kara deta hoon. Ek main ek second aap mere ko ya toh aapke number dijiye ya main bahar khada tha abhi office jaake turant aapko bhej dunga. Buyer: Theek hai, theek hai. Aur ye na ye number mujhe lagta hai IndiaMart through out hua hai. Seller: Ji, ji sir ye Buyer: Aapke number bataiye aap. Mera number likh lijiye na sir. 9320 Seller: 9320 Buyer: 26 Seller: 26 Buyer: 1729 Seller: 1729. Ye hi na sir? 9320261729 Buyer: Sahi hai, sahi hai. Barabar hai. Seller: Sir naam kya sir? Buyer: Mera naam Ashish hai. Mere company ka naam Ashish Industrial Fabric. Seller: Theek hai sir. Main abhi aapko thodi der mein bas office se puch ke bhejta hoon. Buyer: Please sir. Aapka naam sir? Seller: Umesh Chopra. Buyer: Umesh Chopra. Theek hai Chopra sir. Bhejiye, bhejiye. Seller: Theek hai sir. Thank you sir. Automated Voice: Aap jya vyakti sobat bolat ahat, tya vyakti ne aapla call hold var thevla ahe. Krupaya line var raha.",
+    "analysis": {
+      "category": "Machinery",
+      "deal_status": "Follow-up",
+      "objection_type": "None",
+      "buyer_intent_score": 8,
+      "missing_specs": [],
+      "summary": "The buyer is looking for a fabric label printer for customized labels for handbags, specifically waterproof and fade-resistant. The seller confirmed they have Citizen brand printers that can fulfill this requirement and promised to send details and costing via WhatsApp.",
+      "seller_id": "Umesh Chopra",
+      "buyer_id": "Ashish (Ashish Industrial Fabric)",
+      "product": "Fabric label printer (Citizen brand)",
+      "price_discussion": {
+        "final_price": "Not discussed",
+        "currency": "INR"
+      },
+      "language_analysis": {
+        "primary_language": "Hindi",
+        "language_barriers": "None",
+        "translation_needed": "No"
+      },
+      "responsiveness_analysis": {
+        "background_noise_level": "medium",
+        "call_quality_issues": [
+          "background noise"
+        ],
+        "seller_tone": "professional",
+        "response_delays": "none",
+        "call_engagement": "moderately_engaged"
+      },
+      "demand_gap_analysis": {
+        "unmet_requirements": [],
+        "market_gaps_identified": [],
+        "buyer_suggestions": [],
+        "competitive_advantages_needed": []
+      },
+      "negotiation_dynamics": {
+        "negotiation_present": false,
+        "negotiation_intensity": "none",
+        "buyer_behavior": "questioning",
+        "seller_flexibility": "not applicable",
+        "discount_requested_percent": 0,
+        "discount_offered_percent": 0,
+        "negotiation_outcome": "stalemate"
+      }
+    },
+    "csv_metadata": {
+      "buyer_identifier": "1057272",
+      "seller_identifier": "40968015",
+      "pns_call_recording_url": "https://openapi.airtel.in/gateway/airtel-xchange/call/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspME6sCBIWwGjP01fyw0e74/v1AeGuXveXvpzAyUJQAXDMZBRc215Buqw7WHzhTEFIqPMsdfY8uoIvrL4CirTug6",
+      "mcat_id_x": "1546",
+      "mcat_name": "Label Printing Machines",
+      "pns_call_record_started_at": "11:22:08",
+      "pns_call_record_ended_at": "11:24:34",
+      "call_duration": "145",
+      "pns_call_caller_city_id": "70627",
+      "city_name": "Navi Mumbai",
+      "state_name": "Maharashtra",
+      "pns_custtype_id": "1",
+      "pns_call_modrefname": "Wash Care Label Printing Machines",
+      "pns_call_source_modid": "IMOB",
+      "seller_vintage_days": "2310",
+      "pns_call_ring_duration": "14",
+      "mcat_id_y": "1546",
+      "url": "https://openapi.airtel.in/gateway/airtel-xchange/call/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspME6sCBIWwGjP01fyw0e74/v1AeGuXveXvpzAyUJQAXDMZBRc215Buqw7WHzhTEFIqPMsdfY8uoIvrL4CirTug6",
+      "gcs_path": "gs://im-model-product/pns/8d200316538bc467299b86d13892043e728c644285030becba3f25b1e4e08824.mp3",
+      "Audio_url": "https://storage.googleapis.com/im-model-product/pns/8d200316538bc467299b86d13892043e728c644285030becba3f25b1e4e08824.mp3?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=mayank-docker%40model-product.iam.gserviceaccount.com%2F20251212%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20251212T093025Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=3b8e9d993da4cf5cfbb23b0a95762f103117a3a44435fa5ee2342127fc1cf91fb45a6b57053142923b5645343ecd42ede47db6fc09a27484fb3e12b1ae4ae71de3bfbadc5568946463e5ccbad4c2d483132ebdc24c5d9504a93e4e37a173e269979597ed7948f5e35837086b28ce34584c7856425bcdadfa1dd5fa69a8452f2a5321f1567886a5740d659243f50b1f1d04b3539d30fbebb1983599967328ac1c5d74a62fb5189f4e0fc0f136e71b4831155aecb440f46226a1f688accaa396874563650142143c667baf812cf8944ad673e95051b925a3b4be279a95f3067a3f12186d8c7f7dda9f9e4ffb6a0e8dfecae176e0a34c1b8077eb2c01b9c580b17b"
+    }
+  },
+  {
+    "id": "call_1765608050429",
+    "filename": "url_audio",
+    "timestamp": "2025-12-13T06:40:50.429Z",
+    "duration_seconds": 120,
+    "transcript": "Seller: Hello. Buyer: Hello. Seller: Ha madam bol rahi hu. Buyer: Hello. Seller: Ha bolye. Buyer: Ha good afternoon mam. Main India Gelatin and Chemicals Bariman Points se bol rahi hu. Mujhe ye label printing machine ka India Gelatin and Chemical Limited Bariman Point Mumbai. Seller: Location? Buyer: Hello. Seller: Location mam? Buyer: Mumbai Mumbai. Seller: Mumbai se okay. Bolye. Buyer: Actually mujhe ye label printing machine ka inquiry karna tha. Seller: Okay. Model kon sa? Buyer: Actually iska mujhe kuch bhi idea nahi hai. Ye first time le rahe hai hum log. Hamara factory Vapi mein hai. Actually Vapi ke factory ke liye chahiye. Hame iske liye quotation chahiye. Label printing machine in the sense ye ha ha visitors jo bhi aate hai na unka wo details print hone ke liye chahiye ye. Seller: I'm sorry pardon. Buyer: Ye jo visitors wagera aate hai na hello uske liye wo printing ke liye chahiye. Machine. Seller: Ha. Okay. Chalega mam. Main ek do minute mein aapko phone karti hu. Sir se baat karke aapko quotation wagera send karwa deti hu. Buyer: Okay okay theek hai. Aapko email id de du main? Seller: Ha. Buyer: Ha IGPL. Seller: Na. Buyer: Ek minute bataye. I. Buyer: IGPL Mumbai. Seller: IGPL Mumbai. Buyer: @indiagelatin.com. Seller: India Gelatin. Buyer: Gelatin.com. Seller: .com. Okay. Buyer: Okay mam theek hai. Seller: Mera ha okay. Buyer: Ha okay. Seller: Main theek hai. Buyer: Thank you. Seller: Okay thank you.",
+    "analysis": {
+      "category": "Machinery",
+      "deal_status": "Follow-up",
+      "objection_type": "None",
+      "buyer_intent_score": 8,
+      "missing_specs": [
+        "Model number of the label printing machine"
+      ],
+      "summary": "The buyer from India Gelatin and Chemicals in Mumbai is inquiring about a label printing machine for their factory in Vapi, specifically for printing visitor details. The buyer has no prior experience with such machines and requires a quotation. The seller will follow up with a quotation after discussing with a senior.",
+      "seller_id": "Unknown",
+      "buyer_id": "India Gelatin and Chemicals",
+      "product": "Label printing machine",
+      "price_discussion": {
+        "final_price": "Not discussed",
+        "currency": "INR"
+      },
+      "language_analysis": {
+        "primary_language": "Hindi",
+        "language_barriers": "None",
+        "translation_needed": "No"
+      },
+      "responsiveness_analysis": {
+        "background_noise_level": "low",
+        "call_quality_issues": [],
+        "seller_tone": "professional",
+        "response_delays": "none",
+        "call_engagement": "moderately_engaged"
+      },
+      "demand_gap_analysis": {
+        "unmet_requirements": [
+          "Specific features for visitor detail printing (e.g., speed, size, integration)"
+        ],
+        "market_gaps_identified": [
+          "First-time buyers needing more guidance and consultation on product selection."
+        ],
+        "buyer_suggestions": [],
+        "competitive_advantages_needed": [
+          "Offering comprehensive solutions for first-time buyers, including consultation and tailored recommendations."
+        ]
+      },
+      "negotiation_dynamics": {
+        "negotiation_present": false,
+        "negotiation_intensity": "none",
+        "buyer_behavior": "questioning",
+        "seller_flexibility": "low",
+        "discount_requested_percent": 0,
+        "discount_offered_percent": 0,
+        "negotiation_outcome": "stalemate"
+      }
+    },
+    "csv_metadata": {
+      "buyer_identifier": "247649896",
+      "seller_identifier": "1441672",
+      "pns_call_recording_url": "https://openapi.airtel.in/gateway/airtel-xchange/call/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspMWDOzORRc1pjMMSsRv bgCb/k5ZKjz6zzabXMMm8IxaXglBKgQQiTiTD5mZSsbWtKPMsdfY8uoIvrL4CirTug6",
+      "mcat_id_x": "1546",
+      "mcat_name": "Label Printing Machines",
+      "pns_call_record_started_at": "15:46:34",
+      "pns_call_record_ended_at": "15:48:41",
+      "call_duration": "127",
+      "pns_call_caller_city_id": "70624",
+      "city_name": "Mumbai",
+      "state_name": "Maharashtra",
+      "pns_custtype_id": "1",
+      "pns_call_modrefname": "Label Printing Machines",
+      "pns_call_source_modid": "PRODDTL",
+      "seller_vintage_days": "861",
+      "pns_call_ring_duration": "10",
+      "mcat_id_y": "1546",
+      "url": "https://openapi.airtel.in/gateway/airtel-xchange/call/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspMWDOzORRc1pjMMSsRv bgCb/k5ZKjz6zzabXMMm8IxaXglBKgQQiTiTD5mZSsbWtKPMsdfY8uoIvrL4CirTug6",
+      "gcs_path": "gs://im-model-product/pns/f0ec73033c639ba29504474f458fee9d330b2904d0cc45a35360941555a43b0c.mp3",
+      "Audio_url": "https://storage.googleapis.com/im-model-product/pns/f0ec73033c639ba29504474f458fee9d330b2904d0cc45a35360941555a43b0c.mp3?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=mayank-docker%40model-product.iam.gserviceaccount.com%2F20251212%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20251212T092959Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=260a277afbe490e05d141536b4b42024c415b27942d0b5a2164e5f1f2169d459d22d8bdcbe8c18db6901b114b9ee952fefe0237cd2e92f710294724ce3c17db4b04d771890ede3aecb60fb786d4e4cb15c2af4fe5c963359e8238b2712d535926a9440181eca0413641a9f12e0e462eeaae5f157c6c3f89b2cdc1141442dcf9266eb5f82c6660a1a547c0762f98da21ee727b9e74f780f1c79453efca7eed3ae69782e13b0f7b2d2313fb1293c20094fbec0a6ef53cb21f1a24f2c06dd38cb53804e291a43a9383dc2d465a5d7b10dfe3c204fd30a0ff44cf9fa58a2d21897514d1ce1660273bc0692a8dee24a6f7f877a96e47472284fa08e0dc18631db7dd8"
+    }
+  },
+  {
+    "id": "call_1765608024373",
+    "filename": "url_audio",
+    "timestamp": "2025-12-13T06:40:24.373Z",
+    "duration_seconds": 60,
+    "transcript": "Seller: Hello. Seller: Hello. Buyer: Hello. Seller: Ji, ma'am, boliye. Buyer: Ma'am, aap Surat se bol rahe hain? Seller: Haan, main Surat, Gujarat se baat kar rahi hoon. Buyer: Actually, ma'am, I want that machine. I will, maine ek inquiry daali thi aapke India Mart par. Seller: Okay. Buyer: I want logo printing machine. Seller: 6x6. Buyer: Ji, ma'am. Seller: 6x6 wali jo logo label wali aati hai, wahi chahiye thi na aapko? Buyer: Actually, ma'am, I can't hear your voice. Hello. Seller: Logo and label printing machine jo aati hai, wahi chahiye na aapko? Buyer: Yes, ma'am. Seller: Toh woh 6x6 ki aati hai. Usme manually bhi hai aur automatic bhi hai. Aapko kaun si chahiye? Buyer: Automatic. Seller: Automatic. Toh woh 32,000 ki padegi, sir. Slider wala model rahega, heavy structure hai aur do plate rahegi. Buyer: Ji, ma'am, isme kya-kya print kar sakte hain, actually? Seller: Aap koi bhi fabric pe, it means print kar sakte ho, sir, koi bhi kapde pe. Buyer: No, I want to print on plastic. Seller: Plastic pe print nahi hoga, sir. Seller: Plastic pe print nahi hoga. Fabric ke related hai, sir, ye. Buyer: I want a machine which print on the like a bottle label hota hai na? Seller: Nahi, bottle pe label karne ke liye dusri machine aati hai. Woh hamare paas available nahi hai, sir. Ye kapde ke related hai, it means koi bhi fabric pe aap print kar sakte ho. Bottle pe print nahi hogi, sir. Buyer: Okay. Thank you. Seller: Ji.",
+    "analysis": {
+      "category": "Machinery",
+      "deal_status": "Dropped",
+      "objection_type": "Specs",
+      "buyer_intent_score": 7,
+      "missing_specs": [
+        "Machine for plastic/bottle label printing",
+        "Machine capable of printing on plastic"
+      ],
+      "summary": "The buyer inquired about a logo printing machine, specifically for plastic or bottle labels. The seller offered a 6x6 automatic fabric printing machine for 32,000 INR. The deal was dropped as the seller's machine was not suitable for the buyer's specific requirement of printing on plastic.",
+      "seller_id": "Unknown",
+      "buyer_id": "Unknown",
+      "product": "Logo printing machine (for fabric)",
+      "price_discussion": {
+        "final_price": "32,000",
+        "currency": "INR"
+      },
+      "language_analysis": {
+        "primary_language": "Hindi",
+        "language_barriers": "No",
+        "translation_needed": "No"
+      },
+      "responsiveness_analysis": {
+        "background_noise_level": "medium",
+        "call_quality_issues": [
+          "Brief audio issue on buyer's side (couldn't hear seller)"
+        ],
+        "seller_tone": "professional",
+        "response_delays": "no",
+        "call_engagement": "moderately_engaged"
+      },
+      "demand_gap_analysis": {
+        "unmet_requirements": [
+          "Machine to print on plastic",
+          "Machine to print on bottle labels"
+        ],
+        "market_gaps_identified": [
+          "Opportunity for seller to offer logo/label printing machines for plastic/bottle applications."
+        ],
+        "buyer_suggestions": [],
+        "competitive_advantages_needed": [
+          "Expand product line to include plastic/bottle label printing machines."
+        ]
+      },
+      "negotiation_dynamics": {
+        "negotiation_present": false,
+        "negotiation_intensity": "none",
+        "buyer_behavior": "questioning",
+        "seller_flexibility": "rigid",
+        "discount_requested_percent": 0,
+        "discount_offered_percent": 0,
+        "negotiation_outcome": "failed"
+      }
+    },
+    "csv_metadata": {
+      "buyer_identifier": "68624809",
+      "seller_identifier": "146716361",
+      "pns_call_recording_url": "https://openapi.airtel.in/gateway/airtel-xchange/call/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspN8Qkppc4IvUfwzAOTDrNlEEyftGO5Am WVSykF0x5oxIGcRBGzrA4VOzvKgls11HePMsdfY8uoIvrL4CirTug6",
+      "mcat_id_x": "1546",
+      "mcat_name": "Label Printing Machines",
+      "pns_call_record_started_at": "11:49:02",
+      "pns_call_record_ended_at": "11:51:00",
+      "call_duration": "117",
+      "pns_call_caller_city_id": "70664",
+      "city_name": "Ajmer",
+      "state_name": "Rajasthan",
+      "pns_custtype_id": "12",
+      "pns_call_modrefname": "MechMart Logo and Label Printing Machine, Capacity: 1000 T Shirt Per Day, Model/Type: MM - 6*6",
+      "pns_call_source_modid": "ANDWEB",
+      "seller_vintage_days": "1085",
+      "pns_call_ring_duration": "7",
+      "mcat_id_y": "1546",
+      "url": "https://openapi.airtel.in/gateway/airtel-xchange/call/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspN8Qkppc4IvUfwzAOTDrNlEEyftGO5Am WVSykF0x5oxIGcRBGzrA4VOzvKgls11HePMsdfY8uoIvrL4CirTug6",
+      "gcs_path": "gs://im-model-product/pns/95de96d2221c30fab116f4c29d1c0afd4c4e627e35bf088c9756b350d253f056.mp3",
+      "Audio_url": "https://storage.googleapis.com/im-model-product/pns/95de96d2221c30fab116f4c29d1c0afd4c4e627e35bf088c9756b350d253f056.mp3?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=mayank-docker%40model-product.iam.gserviceaccount.com%2F20251212%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20251212T092847Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=25a03fef309df5e15f0e09167c153b890ae492ed02eadeacdec2b7d3224f7b2b1723695bd9c30cb5f3076649e3f49d98cb8f8d61bf1ad661941639e8132fd67b745e393eb4db60a088f857282b4a65cb2c6a14fde2a8f4a7eb8464c09e1d9334ff15c4b0e525adf5896a6f1b163058de8de76e6dff9d01c6272ab025fa22753fa8338a21ff63bd69f47696e3e4633e8d959d344ab579355d7cbcda3a52ec8a47dcd2568c5247a2ca3a52e22d2947c849ad2acff200ea7c404063b53aaafa86bcc9bd4a50e0f064a3e735d844c7da529dd493e3cb6c3a29206f84340c660566e2601b9bf3b78ded0fd65a4671bdedafcc13363ccbb3f9bd1bf5b718d70377f0d3"
+    }
+  },
+  {
+    "id": "call_1765608001483",
+    "filename": "url_audio",
+    "timestamp": "2025-12-13T06:40:01.484Z",
+    "duration_seconds": 120,
+    "transcript": "Seller: हेलो। Buyer: हां जी सर बोलिए। Seller: हां भैया मेरे को वाटर बॉटल लेबलिंग प्रिंटिंग मशीन चाहिए। Buyer: अच्छा वाटर बॉटल लेबल प्रिंटिंग मशीन चाहिए आपको। Seller: हां हां। Buyer: आपका प्रोडक्शन कैपेसिटी कितना रहता है आपका? प्रोडक्शन कितना रहता है पर मंथ पर महीना? Seller: अब पर मंथ पर महीना ये मान लो लगभग 6 लाख बॉटल्स। Buyer: 6 लाख। 6 लाख से कम है सर। क्योंकि अपना मशीन में जो प्रोडक्शन होता है वो एक पर डे में 10 लाख से ऊपर होता है। Seller: अच्छा नहीं तो कोई छोटा मशीन भी तो होगा आपके पास। Buyer: अच्छा आपको मोटर बॉटल लेबल कौन सा मटेरियल का है? Seller: अ वाटर बॉटल में अभी ऐसा मटेरियल वटेरियल तो पता नहीं है मेरे को क्योंकि एक्चुअल में अभी नया-नया धंधा है। Buyer: अच्छा अच्छा वो मेटालिक है पीवीसी मटेरियल का नेम पूछ लो फिर मुझे बताओ ना मैं आपको WhatsApp में आपको मैं वीडियो भी सेंड करूंगा। Seller: हां मैं आपके में एक मशीन देख रहा था जो 3 लाख की 3.5 लाख की है एक 6 लाख की है। ये सब प्रिंटिंग मशीन ही है ना? Buyer: नहीं नहीं सर वो तो कटिंग मशीन है छोटा वाला। वो वन कलर का मशीन देखा होगा आपने 6 लाख का था। Seller: नहीं वन कलर का तो नहीं। Buyer: आपका लेबल वन कलर का चाहिए या टू कलर का थ्री कलर का देखना पड़ेगा। Seller: अब वही मान के चलिए भैया मल्टी कलर ही रहेगा। Buyer: मल्टी कलर तो फिर आपको सिक्स कलर लेना पड़ेगा सर। Seller: कितने कितने का आएगा वो लगभग? Buyer: सिक्स कलर आओगे तो 25 लाख का आएगा फिर 1 करोड़ की मशीन आएगी आपको। Seller: अच्छा 25 लाख की स्टार्टिंग रेट है। Buyer: हां जी। Seller: ठीक ठीक और इससे कम में नहीं है भैया अवेलेबल। अब पर डे में Buyer: अच्छा और मेरा देखो। Seller: 2000 2000 मैं पर डे में मतलब पर मिनट पर मिनट 200 पर मिनट 30 बॉटल मेरे यहां से निकलता है। Buyer: बराबर। Seller: है ना पर मिनट 30 बॉटल निकलता है। तो इस हिसाब से मतलब वो मशीन एक साथ अगर प्रिंट करेगा वो तो कितना लेबल प्रिंट करता है? Buyer: आपका एक जॉब और कितना आ रहा है? एक मतलब एक जॉब कितना आ रहा है? कितने लेबल्स चाहते हो? Seller: अब लेबल वही लगभग-लगभग मेरे को टोटल अगर पूछेंगे तो Buyer: हां सर अपना नंबर से सर आपको कांटेक्ट करता हूं। ये ऑनलाइन नंबर है मैं अपना नंबर से आपको कांटेक्ट करता हूं। Seller: ठीक है भैया नंबर बताऊं कि होगा आपके पास? Buyer: नहीं आपने ऑनलाइन किया है नंबर आ गया होगा मैं करता हूं आपको। मैं अभी थोड़ा देर में लेबल्स फॉर्म में एक्सपोर्टर के लिए मैं आपको करता हूं। Seller: ठीक है भैया फिर आप लगाइए मेरे को। Buyer: हां जी हां जी पक्का पक्का। Buyer: हां।",
+    "analysis": {
+      "category": "Machinery",
+      "deal_status": "Follow-up",
+      "objection_type": "Price, Specs",
+      "buyer_intent_score": 7,
+      "missing_specs": [
+        "Material of the water bottle label",
+        "Exact job size / number of labels needed"
+      ],
+      "summary": "The buyer inquired about a water bottle labeling printing machine for a new business, needing to label approximately 6 lakh bottles per month. The seller's standard machines are for much higher production (10 lakh+ per day), leading to a discussion about smaller machines, material types, and multi-color printing options, with prices ranging from 25 lakh to 1 crore. The call concluded with the seller promising to follow up with the buyer.",
+      "seller_id": "Unknown",
+      "buyer_id": "Unknown",
+      "product": "Water Bottle Labeling Printing Machine",
+      "price_discussion": {
+        "final_price": "Not discussed",
+        "currency": "INR"
+      },
+      "language_analysis": {
+        "primary_language": "Hindi",
+        "language_barriers": "None",
+        "translation_needed": false
+      },
+      "responsiveness_analysis": {
+        "background_noise_level": "medium",
+        "call_quality_issues": [
+          "Background noise on buyer's side"
+        ],
+        "seller_tone": "professional/engaging",
+        "response_delays": "No notable delays.",
+        "call_engagement": "moderately_engaged"
+      },
+      "demand_gap_analysis": {
+        "unmet_requirements": [
+          "A water bottle labeling machine suitable for a production capacity of 6 lakh bottles per month (seller's standard is 10 lakh+ per day).",
+          "A multi-color labeling machine at a lower price point than 25 lakh."
+        ],
+        "market_gaps_identified": [
+          "Potential market for smaller capacity/lower-cost multi-color labeling machines for new businesses or those with lower production volumes."
+        ],
+        "buyer_suggestions": [],
+        "competitive_advantages_needed": [
+          "Offer machines with lower production capacities and potentially lower price points to cater to new businesses or those with smaller volumes.",
+          "Clearly articulate the benefits or cost-effectiveness of higher-capacity machines for smaller operations if no smaller options are available."
+        ]
+      },
+      "negotiation_dynamics": {
+        "negotiation_present": true,
+        "negotiation_intensity": "low",
+        "buyer_behavior": "questioning",
+        "seller_flexibility": "medium",
+        "discount_requested_percent": 0,
+        "discount_offered_percent": 0,
+        "negotiation_outcome": "stalemate"
+      }
+    },
+    "csv_metadata": {
+      "buyer_identifier": "71288400",
+      "seller_identifier": "3676307",
+      "pns_call_recording_url": "https://openapi.airtel.in/gateway/airtel-xchange/call/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspNwHeSKBwGUY/WAK2QjWEoCIh/uEa4nNVO7z1NZ2eaPZJv/TMbr18FvJ7fnJIOGG2aPMsdfY8uoIvrL4CirTug6",
+      "mcat_id_x": "1546",
+      "mcat_name": "Label Printing Machines",
+      "pns_call_record_started_at": "17:32:22",
+      "pns_call_record_ended_at": "17:35:04",
+      "call_duration": "162",
+      "pns_call_caller_city_id": "78140",
+      "city_name": "Dhamtari",
+      "state_name": "Chhattisgarh",
+      "pns_custtype_id": "10",
+      "pns_call_modrefname": "Garment Tape Label Printing Machine (2 Colour Front and 1 Colour Back), Model Name/Number: Grf 150",
+      "pns_call_source_modid": "ANDROID",
+      "seller_vintage_days": "3674",
+      "pns_call_ring_duration": "9",
+      "mcat_id_y": "1546",
+      "url": "https://openapi.airtel.in/gateway/airtel-xchange/call/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspNwHeSKBwGUY/WAK2QjWEoCIh/uEa4nNVO7z1NZ2eaPZJv/TMbr18FvJ7fnJIOGG2aPMsdfY8uoIvrL4CirTug6",
+      "gcs_path": "gs://im-model-product/pns/336635eb5d16b398c851368b1c637e66b2498f3b08ac91cb63fb3167b32b9173.mp3",
+      "Audio_url": "https://storage.googleapis.com/im-model-product/pns/336635eb5d16b398c851368b1c637e66b2498f3b08ac91cb63fb3167b32b9173.mp3?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=mayank-docker%40model-product.iam.gserviceaccount.com%2F20251212%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20251212T092816Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=67e862ae5556a979f603b2ea7ec109b6b5cd1cdf1efe971a36b21e16c313c0167b3600d80d047ffb42ec006b9f842fd0ffeb059b15527ac64396f682b6c7483770704b8a41d5bfa652811ef2ee57528e60a994489310c3a90ce7f2c6e43ac45467848eddc429a932f6e233ee6fe8782803e2f8331bfa941012f2597f7636c225cded6580964441398f803cdd0d152f657ede25809786a4a2a3a601c3a7556614f91886494a3226732d77ae16bc9f2e08e403b6547dc68fac42d3d14728961c65ac2fa926e0e78911c71cf7cd479718fad64054561c8f3cf860228e2fa8a822aa4bd3c33580a47bdb777deb33178b779c14229be2eee2ad30fb151d45dfa17a23"
+    }
+  },
+  {
+    "id": "call_1765607978863",
+    "filename": "url_audio",
+    "timestamp": "2025-12-13T06:39:38.863Z",
+    "duration_seconds": 48,
+    "transcript": "Hello. Hello. Haan ji. Good morning, madam. Ji, good morning. Main Hanumangarh Rajasthan se bol raha hoon ji. Kahan se sir? Hanumangarh Rajasthan se. Sir, aapki voice clear nahi aa rahi hai. Hanumangarh Rajasthan se bol raha hoon madam. Rajasthan se. Haan ji. Ek printer chahiye tha apne jo MRP, MRP printer hai na apna. DP, DP hai na? Haan ji, haan ji sir. Ye chahiye tha. MRP printer mil jayega 6000 se start hai, 6000 plus hai. Kitne ka? 6000 se starting price hai sir. Theek hai. Ye apne charger wagera pe, metal wagera, plastic wagera sab pe print kar deta hai kya? Haan ji, aapko kis surface pe karna hai? Apne ko plastic pe karna hai jaise charger wagera aate hai na, charger, power bank ye wagera. Toh MRP print karna hai us pe. Haan ji? MRP print karna hai us pe ya fir branding karni hai? MRP. Branding jaise logo wagera, MRP hai. Achha, toh uske liye toh sir laser marking machine hoti hai. Kya cheez hai? Sir, main inko laser marking machine hoti hai, fiber laser marking machine, wo rehti hai sir charger wagera pe logo print karne ke liye. Uska kitna price hota hai uska? Sir, wo 1,35,000 se start hai. Kitne ki? 1,35,000.",
+    "analysis": {
+      "category": "Machinery",
+      "deal_status": "Follow-up",
+      "objection_type": "Specs",
+      "buyer_intent_score": 8,
+      "missing_specs": [
+        "Initial MRP printer could not print logos or on all desired surfaces (metal/plastic) for the buyer's specific use case (chargers/power banks)."
+      ],
+      "summary": "A buyer from Hanumangarh, Rajasthan, inquired about an MRP printer for printing on chargers/power banks. The seller clarified that for this specific use case (including logos), a more expensive laser marking machine is required, starting at 1,35,000 INR, compared to the MRP printer's 6,000 INR starting price.",
+      "seller_id": "Unknown",
+      "buyer_id": "Unknown",
+      "product": "MRP Printer, Laser Marking Machine",
+      "price_discussion": {
+        "final_price": "Not discussed",
+        "currency": "INR"
+      },
+      "language_analysis": {
+        "primary_language": "Hindi",
+        "language_barriers": "None",
+        "translation_needed": "No"
+      },
+      "responsiveness_analysis": {
+        "background_noise_level": "medium",
+        "call_quality_issues": [
+          "Buyer's voice unclear at times",
+          "Background noise on both ends"
+        ],
+        "seller_tone": "engaging",
+        "response_delays": "none",
+        "call_engagement": "highly_engaged"
+      },
+      "demand_gap_analysis": {
+        "unmet_requirements": [
+          "Buyer initially sought a low-cost MRP printer for a task requiring a high-end laser marking machine (printing logos/MRP on chargers/power banks)."
+        ],
+        "market_gaps_identified": [],
+        "buyer_suggestions": [],
+        "competitive_advantages_needed": []
+      },
+      "negotiation_dynamics": {
+        "negotiation_present": false,
+        "negotiation_intensity": "none",
+        "buyer_behavior": "questioning",
+        "seller_flexibility": "high",
+        "discount_requested_percent": 0,
+        "discount_offered_percent": 0,
+        "negotiation_outcome": "information_exchange"
+      }
+    },
+    "csv_metadata": {
+      "buyer_identifier": "64203309",
+      "seller_identifier": "4158397",
+      "pns_call_recording_url": "https://openapi.airtel.in/gateway/airtel-xchange/call/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspPSxx5NgvMuJsqxfdCVvNqIIHZavcBPwPRSdnQ4FEK1Tw0dTLE4hPlx97hk4EG 8xaPMsdfY8uoIvrL4CirTug6",
+      "mcat_id_x": "1546",
+      "mcat_name": "Label Printing Machines",
+      "pns_call_record_started_at": "12:39:38",
+      "pns_call_record_ended_at": "12:41:23",
+      "call_duration": "104",
+      "pns_call_caller_city_id": "73685",
+      "city_name": "Hanumangarh",
+      "state_name": "Rajasthan",
+      "pns_custtype_id": "10",
+      "pns_call_modrefname": "DPL Metal MRP Marking Machine, Model Name/Number: M6",
+      "pns_call_source_modid": "IMOB",
+      "seller_vintage_days": "4042",
+      "pns_call_ring_duration": "7",
+      "mcat_id_y": "1546",
+      "url": "https://openapi.airtel.in/gateway/airtel-xchange/call/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspPSxx5NgvMuJsqxfdCVvNqIIHZavcBPwPRSdnQ4FEK1Tw0dTLE4hPlx97hk4EG 8xaPMsdfY8uoIvrL4CirTug6",
+      "gcs_path": "gs://im-model-product/pns/b0f30c73e5b59991dfbca3ec31268087fc922572846f8ff75bc275dee43447f7.mp3",
+      "Audio_url": "https://storage.googleapis.com/im-model-product/pns/b0f30c73e5b59991dfbca3ec31268087fc922572846f8ff75bc275dee43447f7.mp3?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=mayank-docker%40model-product.iam.gserviceaccount.com%2F20251212%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20251212T092812Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=85a8f5de18bac7268bae173dc598e425e9756bca90a0b18a529565a694be8485aba03b68667c7f7e7bd094e32fd76f1336ab67f781fbc7818a9d6851a6226096901b219ec5f56f7345f3be3b499b00865608c857df73ac2ee8270fe2523e2ca1ccba3ebdae15b071b19ad1867f16b939c5036c1c3ffbef5bbf562aa11b91b3d2e41eaf7615d09e40af2e643b699b5748dae20156b1f62338f981470afe857bdab5db6481a7d939c6296ff4719325e6bbc1e13dbeba07fc3fccbd4bd45a838bad6a77849504b08244ea71b39cfbdcba4f64c1da20042325dcb42e1949510f9beede45c666bcfefa3e57151b746ac2389f4780798dde2dafb4131562ed287d7737"
+    }
+  },
+  {
+    "id": "call_1765607956076",
+    "filename": "url_audio",
+    "timestamp": "2025-12-13T06:39:16.077Z",
+    "duration_seconds": 120,
+    "transcript": "Seller: हेलो। हेलो। हेलो।\nBuyer: हेलो सर, नमस्कार।\nSeller: नमस्कार सर।\nBuyer: सर ये जो अपनी मशीन है जी जेएम 210 सी।\nSeller: हेलो। हां, बोलिए सर।\nBuyer: जी जी सर, ये बॉटल लेबल प्रिंट करने में भी हेल्प करती है क्या सर?\nSeller: बॉटल का?\nBuyer: लेबल।\nSeller: हां।\nBuyer: जी जी सर, ये बॉटल का लेबल भी प्रिंट करती है क्या?\nSeller: हम्म। बॉटल लेबलिंग भी ऑटोमेटिक होता है एंड प्रिंटिंग भी होता है। क्या आपको क्या प्रिंट खाली प्रिंटेड चाहिए?\nBuyer: जी सर, मुझे लेबलिंग और प्रिंटिंग दोनों चाहिए। जो बॉटल का लेबल भी बनाए और फिर उसको बॉटल में प्रिंट वो भी कर दे।\nSeller: हम्म। कर देंगे सर। कर दे सकते हैं।\nBuyer: हां जी सर।\nSeller: आपका क्या बॉटल लेबल क्या स्पेस है?\nBuyer: मतलब वो लेबल नहीं बनाना सर, मशीन चाहिए लेबल की।\nSeller: हम्म। अच्छा। नहीं, आपको आपका क्या प्रोडक्ट है सर, आपको बताएं मेरे को।\nBuyer: सर मेरा पानी जो वाटर बॉटल्स रहती है सर। उसमें प्रिंटिंग करके रेस्टोरेंट्स को प्रोवाइड करने का बिजनेस है सर।\nSeller: ओके ओके। बॉटल ऊपर भी प्रिंट करना है क्या आपको लेबल ऊपर में प्रिंट करना है ना?\nBuyer: जी जी सर, यस सर। जैसे मेरे यहां फॉर एग्जांपल यहां पे 10-12 होटल्स हैं, रेस्टोरेंट्स हैं। उनकी उन्हीं की कंपनी की बॉटल का प्रिंट बना के उनको बॉटल सप्लाई करने का वर्क है सर।\nSeller: ओके ओके।\nBuyer: अभी तक मैं वो थोड़ा छोटे से उसमें कर रहा था। तो सर मैं प्रिंटर यहीं से एक एरिया से 0.25 पैसे से पर प्रिंट निकलवा ले रहा था। पर अब मुझे उसे थोड़ा बड़े स्केल में करना है तो मुझे वो मशीन खुद लेनी है सर।\nSeller: हम्म। नहीं, लेबल भी प्रिंट करना है लेबल ऊपर में। हम लोग का खाली बैच कोड देता है नंबर खाली डेट। मतलब आज ही डेट का, प्राइस का, बैच नंबर ऐसा वाला तीन लाइन आएगा।\nBuyer: अच्छा वो जो बॉटल पे प्रिंट होता है वो वाला सर?\nSeller: हां, बॉटल पे प्रिंट होता है, बराबर है।\nBuyer: अच्छा अच्छा। नहीं मुझे लगा सर वो मशीन भी है वो अपना।\nSeller: लेबल बनाने की मशीन है। लेबल बनाने की मशीन है।\nBuyer: जी जी सर, लेबल बनाने की मशीन।\nSeller: लेबल बनाने की मशीन नहीं है। हम लोग नहीं ऐसा कर रहे हैं। प्रिंटिंग खाली प्रिंटिंग ऊपर में कर सकता है। बॉटल ऊपर में एंड लेबल के ऊपर में प्रिंटर देता है हम लोग का।\nBuyer: अच्छा अच्छा। सर आपकी कुछ हेल्प मिलेगी इसमें सर ये मशीन कहां मिलेगी?\nSeller: अभी अभी का लेबल सब प्रिंटर का जो जो छोटे-छोटे प्रिंटिंग कलर भी उसमें नेम आएगा ना नो अभी तक।\nBuyer: कलरिंग भी रहेगी उसमें?\nSeller: हम्म हम्म।\nBuyer: पूरा मतलब जो सर बॉटल के ऊपर जो जैसे बिसलेरी का लेबल बना हुआ आता है लेबल।\nSeller: हम्म हम्म।\nBuyer: वैसे ही सेम सर लेबल अपन को बना के उनकी बॉटलों में प्रोवाइड करने हैं।\nSeller: स्टिकर लेबल वो स्टिकर लेबल बनाता है ना उसको पूछना है सर वो। यू नो वो मालूम पड़ेगा। मेरा आईडिया नहीं है। वो स्टिकर लेबल जो बनाते हैं ना लेबल बनाते हैं ना उससे पूछने से मालूम पड़ेगा। थोड़ा आईडिया देगा। हम लोग खाली ऑटोमेटिक लेबलिंग मशीन बनाता है। मतलब स्टिकर रोल लगाने के बाद में वो ऑटोमेटिक बॉटल ऊपर में स्टिक होता है एंड उसमें प्रिंट आता है। ऐसा हम लोग का मशीन बनाता है। लेकिन स्टिकरिंग लेबलिंग मशीन हम लोग नहीं बनाता।\nBuyer: जी सर। ठीक है सर, मैं देखता हूं।\nSeller: ठीक है ठीक है ठीक है। थैंक यू।\nBuyer: थैंक यू सर। थैंक यू।",
+    "analysis": {
+      "category": "Machinery",
+      "deal_status": "Dropped",
+      "objection_type": "Specs",
+      "buyer_intent_score": 8,
+      "missing_specs": [
+        "Full-color custom graphic label printing capability",
+        "Machine to create sticker labels for water bottles"
+      ],
+      "summary": "The buyer inquired about a JM 210 C machine for printing custom, full-color labels on water bottles for their business. The seller clarified that their machine only prints batch codes, dates, and prices, and does not create full graphic labels or sticker labels, directing the buyer to other vendors for such requirements.",
+      "seller_id": "Unknown",
+      "buyer_id": "Unknown",
+      "product": "JM 210 C machine (labeling and printing machine)",
+      "price_discussion": {
+        "final_price": "Not discussed",
+        "currency": "INR"
+      },
+      "language_analysis": {
+        "primary_language": "Hindi",
+        "language_barriers": "None",
+        "translation_needed": "No"
+      },
+      "responsiveness_analysis": {
+        "background_noise_level": "low",
+        "call_quality_issues": [],
+        "seller_tone": "professional",
+        "response_delays": "none",
+        "call_engagement": "moderately_engaged"
+      },
+      "demand_gap_analysis": {
+        "unmet_requirements": [
+          "Machine for full-color, custom graphic label printing on water bottles (like Bisleri labels)",
+          "Machine to create sticker labels"
+        ],
+        "market_gaps_identified": [
+          "A combined solution for automatic labeling and full-color custom graphic printing for water bottles, or a machine that produces custom sticker labels."
+        ],
+        "buyer_suggestions": [],
+        "competitive_advantages_needed": [
+          "Ability to offer machines that can create or print full-color, custom graphic labels, not just batch codes/dates."
+        ]
+      },
+      "negotiation_dynamics": {
+        "negotiation_present": false,
+        "negotiation_intensity": "none",
+        "buyer_behavior": "questioning",
+        "seller_flexibility": "rigid",
+        "discount_requested_percent": 0,
+        "discount_offered_percent": 0,
+        "negotiation_outcome": "failed"
+      }
+    },
+    "csv_metadata": {
+      "buyer_identifier": "243907672",
+      "seller_identifier": "1113971",
+      "pns_call_recording_url": "https://openapi.airtel.in/gateway/airtel-xchange/callv2/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspMv0vecyj/pRYN5XW5MLXGuHt1hLbrqwzZJZenPEWah6fWRMLf5tIlyUW5AdIMOlYyPMsdfY8uoIvrL4CirTug6",
+      "mcat_id_x": "1546",
+      "mcat_name": "Label Printing Machines",
+      "pns_call_record_started_at": "17:15:31",
+      "pns_call_record_ended_at": "17:19:15",
+      "call_duration": "223",
+      "pns_call_caller_city_id": "70594",
+      "city_name": "Jabalpur",
+      "state_name": "Madhya Pradesh",
+      "pns_custtype_id": "12",
+      "pns_call_modrefname": "Label Printing Machine .",
+      "pns_call_source_modid": "IMOB",
+      "seller_vintage_days": "4066",
+      "pns_call_ring_duration": "20",
+      "mcat_id_y": "1546",
+      "url": "https://openapi.airtel.in/gateway/airtel-xchange/callv2/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspMv0vecyj/pRYN5XW5MLXGuHt1hLbrqwzZJZenPEWah6fWRMLf5tIlyUW5AdIMOlYyPMsdfY8uoIvrL4CirTug6",
+      "gcs_path": "gs://im-model-product/pns/de4e3c2c6cf663e950cfb628142057ce140c7db834b855f1b305e6de84664418.mp3",
+      "Audio_url": "https://storage.googleapis.com/im-model-product/pns/de4e3c2c6cf663e950cfb628142057ce140c7db834b855f1b305e6de84664418.mp3?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=mayank-docker%40model-product.iam.gserviceaccount.com%2F20251212%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20251212T092755Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=7154e0fcfc14b8265838867ee4f1153d5f56c2b226775ec5d0e9098745485c42040a3f5aefcaba000ebbac058a47b5632d644256048c571f0e3ac81f49607567cc77b1bf8cdc067091489dce75667ce9d598acac67a547f7302f5888bb10294292a4f2bc356eea6b30c5796257ac7aac7988fb026167d24a7c4c8d3c5ea474dcf32b9115bed664a2d485ebcf70a0d0d32a7c3ce45d46dc3e70271871eb4e02c1ec669f0f6387d8f8ffbb419562961f2c417870daf18d6787a9e7c7671bec674da64ec10f7e4f82c2b4d305bf71afac785a3e8bac5c5385c112ffe72d657816b4834c1941f925c4e8e6cf956b3a5a4fee41ce23487e77a43283b9c22fa4a70010"
+    }
+  },
+  {
+    "id": "call_1765607934328",
+    "filename": "url_audio",
+    "timestamp": "2025-12-13T06:38:54.328Z",
+    "duration_seconds": 120,
+    "transcript": "Seller: Hello.\nBuyer: Hello. Ha, boliye.\nBuyer: Sir, aawaz yetoy?\nSeller: Ha, yetoy na. Bola na.\nBuyer: Sir, Nashik varun boltoye mi.\nSeller: Hmm.\nBuyer: Printer saathi inquiry karaychi hoti sir.\nSeller: Okay. Konta printer?\nBuyer: Te, te saathi counseling ha hoti. Customised print karayche saathi water bottle saathi label.\nSeller: Okay. DTF printing ka?\nBuyer: Hmm, aaple he sticker printing.\nSeller: Sticker printing ka? Okay.\nBuyer: Hmm. Aapla ka mineral water bottle aste na sir?\nSeller: Hmm hmm.\nBuyer: Tyasathi aapla te sticker as na te print karnyasaathi.\nSeller: Okay.\nSeller: Tar konta theek hai.\nSeller: Uh, color printing pahije ki black and white?\nBuyer: Nahi, color, color, color.\nSeller: Color pahije ka?\nSeller: Okay. Color madhe ek printing, printer yete. Okay. Tyachi pricing aahe 1.95 lakh.\nBuyer: Hmm hmm.\nSeller: Okay. Ani tumcha madhe near about like maximum 4 inch varun printing karu sakta. 4 inch maximum size aahe width. Ani height tumhi, height just.\nSeller: 4 inch width aahe.\nSeller: Hmm.\nSeller: 4 inch width ani 6 inch, 7 inch height. Maximum.\nBuyer: Hmm.\nSeller: Minimum tumhi karu sakta tyamadhye.\nSeller: Like 25 by 25, 50 by 50. Theek hai sir.\nBuyer: Okay.\nBuyer: Ani tyacha kiti sticker nehu sakta, ekata saal madhe.\nSeller: Tyachi speed ji aahe 4 inch per second aahe.\nBuyer: 4 inch per second.\nSeller: Ho.\nBuyer: Tar ekta saal madhe kiti sticker nikel tumcha andaz.\nSeller: Sir, depend on color var asto. Mhanje 4 second la ek printing lagnaar. Tumhi bagha na calculation kara. 4 inch la, 4 second madhe, ek second madhe 4 inch.\nBuyer: Ha ha ha.\nSeller: Tumhi continuously printing pan karu sakta tyamadhye.\nBuyer: Ha ha.\nSeller: Ani asal tar tumhi 10,000, 15,000 labels sticker print karu sakta.\nBuyer: Achcha.\nSeller: Hmm. Kay labels aahet kay tumcha sticker var?\nBuyer: Sir, customized water bottle banavto aapn.\nSeller: Hmm.\nBuyer: Sir, tyavarti aaplyala hotel chi customized naav takaychi.\nSeller: Okay.\nBuyer: Theek hai. Tyasathi.\nSeller: Ani kiti color cha printing karaycha tumhala?\nBuyer: Te ajun label decide nahi kela sir.\nSeller: Okay, okay.\nSeller: Theek hai na. Mala sanga kay, me tumhala budgetary offer dilela aahe.\nBuyer: Hmm hmm.\nSeller: Printer cha.\nBuyer: Achcha.\nSeller: Hmm. 1.95 lakh cha printer, uh, aahe.\nBuyer: Ha ha ha.\nBuyer: Theek hai, theek hai, chalel.\nBuyer: Mala WhatsApp la quotation takun dya.\nSeller: Uh, tumhi mobile varun karta ka?\nBuyer: Tumcha number dya.\nSeller: India Mart cha number. Maza number ghya na. Okay. 9730.\nBuyer: Uh.\nBuyer: 9730.\nSeller: 535339.\nBuyer: 535339.\nSeller: 39.\nBuyer: Sir, ajun ek suggest karu. Ha, ka zal tar tyacha pan information takun dya mag.\nSeller: Hmm hmm.\nBuyer: 9730535339.\nSeller: Ho.\nBuyer: Okay. Pathavle message tumhala.\nSeller: Okay. Theek hai.\nBuyer: Ho.",
+    "analysis": {
+      "category": "Printing Equipment",
+      "deal_status": "Follow-up",
+      "objection_type": "None",
+      "buyer_intent_score": 8,
+      "missing_specs": [],
+      "summary": "The buyer from Nashik inquired about a sticker printing machine for customized water bottle labels. The seller provided details on a color printer priced at 1.95 lakh, with specific dimensions (max 4-inch width, 6-7 inch height) and a speed of 4 inches per second. The buyer requested a WhatsApp quotation for the printer.",
+      "seller_id": "Unknown",
+      "buyer_id": "Unknown",
+      "product": "Sticker printing machine",
+      "price_discussion": {
+        "final_price": "1.95 lakh",
+        "currency": "INR"
+      },
+      "language_analysis": {
+        "primary_language": "Marathi",
+        "language_barriers": "No",
+        "translation_needed": "No"
+      },
+      "responsiveness_analysis": {
+        "background_noise_level": "medium",
+        "call_quality_issues": [
+          "Slight background noise on seller's side"
+        ],
+        "seller_tone": "engaging",
+        "response_delays": "none",
+        "call_engagement": "moderately_engaged"
+      },
+      "demand_gap_analysis": {
+        "unmet_requirements": [],
+        "market_gaps_identified": [],
+        "buyer_suggestions": [],
+        "competitive_advantages_needed": []
+      },
+      "negotiation_dynamics": {
+        "negotiation_present": false,
+        "negotiation_intensity": "none",
+        "buyer_behavior": "questioning",
+        "seller_flexibility": "not applicable",
+        "discount_requested_percent": 0,
+        "discount_offered_percent": 0,
+        "negotiation_outcome": "not applicable"
+      }
+    },
+    "csv_metadata": {
+      "buyer_identifier": "91645379",
+      "seller_identifier": "1441672",
+      "pns_call_recording_url": "https://openapi.airtel.in/gateway/airtel-xchange/callv2/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspPmK trn1dZLZr6PbGbZSnt3wtFvuxaVPcwAS1Wdynak1m7QAoTY7qz3cNjlEZyoqWPMsdfY8uoIvrL4CirTug6",
+      "mcat_id_x": "1546",
+      "mcat_name": "Label Printing Machines",
+      "pns_call_record_started_at": "13:18:14",
+      "pns_call_record_ended_at": "13:22:18",
+      "call_duration": "243",
+      "pns_call_caller_city_id": "79010",
+      "city_name": "Kalwan",
+      "state_name": "Maharashtra",
+      "pns_custtype_id": "1",
+      "pns_call_modrefname": "Label Printing Machines",
+      "pns_call_source_modid": "IMOB",
+      "seller_vintage_days": "901",
+      "pns_call_ring_duration": "10",
+      "mcat_id_y": "1546",
+      "url": "https://openapi.airtel.in/gateway/airtel-xchange/callv2/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspPmK trn1dZLZr6PbGbZSnt3wtFvuxaVPcwAS1Wdynak1m7QAoTY7qz3cNjlEZyoqWPMsdfY8uoIvrL4CirTug6",
+      "gcs_path": "gs://im-model-product/pns/aea3d72663153ef53c6a58d28f51dfe692ea4d8e74daadb1da41d0da981a3ea8.mp3",
+      "Audio_url": "https://storage.googleapis.com/im-model-product/pns/aea3d72663153ef53c6a58d28f51dfe692ea4d8e74daadb1da41d0da981a3ea8.mp3?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=mayank-docker%40model-product.iam.gserviceaccount.com%2F20251212%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20251212T092735Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=499a906b773517c75ad10d5d823e32ed13f8ed001f17f3fb6287ad28aeba385d472544f923e0b7e1c6a4b0ad4cd93a90644b7f2595db1beea3da4dd224b79b24f6979218189c1207d47533fa443d7ed4610549e8a05f10f102283abbeea3becd89df3e47daaf6a69894b66032e8bea286b20966b5146242af18d52ef675a47401385759801c7a7cda349c757a93c209c1a1ba40acbb5da5f802556c14212bf4678edea9ff3290da09e403002d567abbf0045ad7b831f75797ba490e4cab877e77caa2c9fdeee1bf9d78cd468f25c49241945f44e10ec9ad7bc931ec0b9b34e8165c0ae7327a3b745df01b70bdc33c877ef46eaf52b06d27d7b662f87b9914e8e"
+    }
+  },
+  {
+    "id": "call_1765607863348",
+    "filename": "url_audio",
+    "timestamp": "2025-12-13T06:37:43.348Z",
+    "duration_seconds": 120,
+    "transcript": "Seller: हेलो। Buyer: हां जी। Seller: मैम मुझे मशीन चाहिए थी डेट डालने वाली। Buyer: हां जी मिल जाएगी। Seller: हेलो। Buyer: जी 6000 से स्टार्ट है। Seller: हम्म। Buyer: मैं आपको डिटेल्स भिजवा देती हूं आप अपना नाम बता दीजिए। Seller: मेरा नाम शकील खान है। ₹6000 से कौन सी स्टार्ट है मैम? Buyer: चाइनीस होगी। Seller: नहीं मुझे चाहिए इनजेट मॉडल में जो है। Buyer: मैं आपको डिटेल्स भिजवा देती हूं मैं आपको सारी चीज बता दूंगी। Seller: अच्छा जी। Buyer: जी। Seller: तो भिजवा दो मैम इसी पे। Buyer: आप जिससे बात कर रहे हैं ये नंबर है आपका 8851021370। Seller: जी जी अपना ऑफिस किधर पड़ता है मैम? Buyer: चावड़ी बाजार। Seller: चावड़ी। Buyer: हां जी। Seller: अच्छा अच्छा ठीक है जरा भिजवाए आप डिटेल में। Buyer: ठीक है। ठीक है सर। Seller: आप जिस व्यक्ति से बात कर रहे हैं उसने",
+    "analysis": {
+      "category": "Machinery",
+      "deal_status": "Follow-up",
+      "objection_type": "Specs",
+      "buyer_intent_score": 8,
+      "missing_specs": [
+        "Specific model details for inkjet date printing machine"
+      ],
+      "summary": "The buyer is looking for an inkjet date printing machine. The seller initially offered a Chinese model starting at ₹6000, but the buyer specified an inkjet model. The seller agreed to send details and confirmed their office location in Chawri Bazar.",
+      "seller_id": "Unknown",
+      "buyer_id": "Shakil Khan",
+      "product": "Date printing machine",
+      "price_discussion": {
+        "final_price": "Not discussed",
+        "currency": "INR"
+      },
+      "language_analysis": {
+        "primary_language": "Hindi",
+        "language_barriers": "None",
+        "translation_needed": "No"
+      },
+      "responsiveness_analysis": {
+        "background_noise_level": "medium",
+        "call_quality_issues": [
+          "Background chatter on seller's side"
+        ],
+        "seller_tone": "professional",
+        "response_delays": "none",
+        "call_engagement": "moderately_engaged"
+      },
+      "demand_gap_analysis": {
+        "unmet_requirements": [
+          "Specific inkjet model details"
+        ],
+        "market_gaps_identified": [
+          "Clear differentiation between Chinese and inkjet models for date printing machines"
+        ],
+        "buyer_suggestions": [],
+        "competitive_advantages_needed": [
+          "Detailed product specifications and competitive pricing for inkjet models"
+        ]
+      },
+      "negotiation_dynamics": {
+        "negotiation_present": true,
+        "negotiation_intensity": "low",
+        "buyer_behavior": "questioning",
+        "seller_flexibility": "medium",
+        "discount_requested_percent": 0,
+        "discount_offered_percent": 0,
+        "negotiation_outcome": "stalemate"
+      }
+    },
+    "csv_metadata": {
+      "buyer_identifier": "62299700",
+      "seller_identifier": "4158397",
+      "pns_call_recording_url": "https://openapi.airtel.in/gateway/airtel-xchange/call/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspPZslj9elz3ksz9pbr0KnjBlSWI/oWHX3Tw6UC9gJJV57YV/LrXUIH7Lu6 yxH9bVSPMsdfY8uoIvrL4CirTug6",
+      "mcat_id_x": "1546",
+      "mcat_name": "Label Printing Machines",
+      "pns_call_record_started_at": "16:44:58",
+      "pns_call_record_ended_at": "16:46:10",
+      "call_duration": "71",
+      "pns_call_caller_city_id": "70740",
+      "city_name": "Ghaziabad",
+      "state_name": "Uttar Pradesh",
+      "pns_custtype_id": "10",
+      "pns_call_modrefname": "DPL Metal MRP Marking Machine, Model Name/Number: M6",
+      "pns_call_source_modid": "IMOB",
+      "seller_vintage_days": "3999",
+      "pns_call_ring_duration": "9",
+      "mcat_id_y": "1546",
+      "url": "https://openapi.airtel.in/gateway/airtel-xchange/call/recording?token=XSozh4ATtnka/cY4NT9sTtQGTgVxQXuy0EDTyEbPspPZslj9elz3ksz9pbr0KnjBlSWI/oWHX3Tw6UC9gJJV57YV/LrXUIH7Lu6 yxH9bVSPMsdfY8uoIvrL4CirTug6",
+      "gcs_path": "gs://im-model-product/pns/df6b03d82e9d05790faca01286dfbca8e858cc10416ff658a260dcf4219d6459.mp3",
+      "Audio_url": "https://storage.googleapis.com/im-model-product/pns/df6b03d82e9d05790faca01286dfbca8e858cc10416ff658a260dcf4219d6459.mp3?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=mayank-docker%40model-product.iam.gserviceaccount.com%2F20251212%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20251212T092321Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=4946b8ed02430604bec02ec32da6a55ce82283d482c8dd2edd8ab87ce9bf8391048013ea863134f381b52dc3c6d98937eca2427d3c8f7e78726855b530b17fcaf420bc8ddf9945fdca47988b196dc39bb4185cd68b1245d5cf30b3b46d25ae563c62d8d95543991f58b32162091bb768035503b8d5f555a8c0767ee3e70cc4824648da289508eadde478e62ca8e6d5627b4cee5f7a8c24ff427b7ca90cfdbf6121b86c38cc60700acdb90bba6f2c8946f2563b89f68ce7e1d2b894f9c5b85f603b2f8b0e0e2b9473d5aabc547d25c4b29a2718d64462fc21e0b3d525bbb40d4c1b033f9818a7c5b2507c205a0669668cf0f459dd87b4a52f08cdd71f3511c352"
+    }
+  },
+  {
     "id": "call_1765607475033",
     "filename": "url_audio",
     "timestamp": "2025-12-13T06:31:15.033Z",
