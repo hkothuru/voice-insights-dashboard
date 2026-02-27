@@ -1,15 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
-import os from "os";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const API_KEY = process.env.TRANSCRIPT_API_KEY;
-const BASE_URL = "https://imllm.intermesh.net/v1/chat/completions";
-const MODEL_NAME = "google/gemini-2.5-flash";
+const API_KEY = process.env.GOOGLE_API_KEY;
+const MODEL_NAME = "gemini-2.5-flash";
 
 if (!API_KEY) {
-    throw new Error("TRANSCRIPT_API_KEY environment variable is not set");
+    throw new Error("GOOGLE_API_KEY environment variable is not set");
 }
+
+const genAI = new GoogleGenerativeAI(API_KEY);
 
 export async function POST(req: NextRequest) {
     try {
@@ -52,73 +51,37 @@ export async function POST(req: NextRequest) {
         const base64Audio = buffer.toString("base64");
         console.log(`Processing ${fileName} (${mimeType}), size: ${buffer.length} bytes`);
 
-        // 2. Prepare OpenAI-compatible request body
-        // Note: sending audio via 'image_url' or specific 'input_audio' depends on the gateway's implementation of multimodal.
-        // For Gemini via standard proxies, often a data URI in 'image_url' (even for audio/video) or a custom format is used.
-        // We will try the standard "image_url" pattern but with audio mime type, which some proxies map correctly.
-        // If this fails, we might need a specific 'audio_url' property if the gateway supports it.
+        // Step 1: Get transcript first using Google Gemini API
+        const model = genAI.getGenerativeModel({ model: MODEL_NAME });
 
-        // Step 1: Get transcript first
-        const transcriptBody = {
-            model: MODEL_NAME,
-            messages: [
-                {
-                    role: "user",
-                    content: [
-                        {
-                            type: "text",
-                            text: `Listen to this call recording and provide ONLY a verbatim transcript of the entire conversation.
+        const transcriptPrompt = `Listen to this call recording and provide ONLY a verbatim transcript of the entire conversation.
 
 Output ONLY valid JSON with this exact schema:
 {
     "transcript": "Full verbatim transcript with speaker identification (Seller/Buyer)..."
-}`
-                        },
-                        {
-                            type: "image_url",
-                            image_url: {
-                                url: `data:${mimeType};base64,${base64Audio}`
-                            }
-                        }
-                    ]
-                }
-            ],
-            temperature: 0.1
-        };
+}`;
 
         console.log("Step 1: Getting transcript...");
-        const transcriptResponse = await fetch(BASE_URL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${API_KEY}`
-            },
-            body: JSON.stringify(transcriptBody)
-        });
+        const transcriptResult = await model.generateContent([
+            transcriptPrompt,
+            {
+                inlineData: {
+                    data: base64Audio,
+                    mimeType: mimeType
+                }
+            }
+        ]);
 
-        if (!transcriptResponse.ok) {
-            const errText = await transcriptResponse.text();
-            throw new Error(`Transcript API failed: ${transcriptResponse.status}: ${errText}`);
-        }
-
-        const transcriptData = await transcriptResponse.json();
-        const transcriptContent = transcriptData.choices[0].message.content;
+        const transcriptResponse = await transcriptResult.response;
+        const transcriptContent = transcriptResponse.text();
         const transcriptJsonString = transcriptContent.replace(/```json\s*/g, "").replace(/```/g, "").trim();
-        const transcriptResult = JSON.parse(transcriptJsonString);
-        const transcript = transcriptResult.transcript;
+        const transcriptParsed = JSON.parse(transcriptJsonString);
+        const transcript = transcriptParsed.transcript;
 
         console.log("Transcript obtained, now analyzing for insights...");
 
         // Step 2: Analyze transcript for comprehensive business insights
-        const analysisBody = {
-            model: MODEL_NAME,
-            messages: [
-                {
-                    role: "user",
-                    content: [
-                        {
-                            type: "text",
-                            text: `Analyze this call recording AND the provided transcript to extract comprehensive business intelligence. 
+        const analysisPrompt = `Analyze this call recording AND the provided transcript to extract comprehensive business intelligence. 
 You MUST listen to the audio to determine "seller_tone", "background_noise", and "engagement".
 Use the transcript for extraction of specific facts, prices, and specs.
 
@@ -173,45 +136,23 @@ Output ONLY valid JSON with this exact schema:
             "negotiation_outcome": "successful/compromise/stalemate/failed"
         }
     }
-}`
-                        },
-                        {
-                            type: "image_url",
-                            image_url: {
-                                url: `data:${mimeType};base64,${base64Audio}`
-                            }
-                        }
-                    ]
-                }
-            ],
-            temperature: 0.2
-        };
+}`;
 
-        // Step 3: Call analysis API
+        // Step 3: Call analysis API using Google Gemini
         console.log("Step 2: Analyzing transcript for business insights...");
-        const analysisResponse = await fetch(BASE_URL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${API_KEY}`
-            },
-            body: JSON.stringify(analysisBody)
-        });
+        const analysisResult = await model.generateContent([
+            analysisPrompt,
+            {
+                inlineData: {
+                    data: base64Audio,
+                    mimeType: mimeType
+                }
+            }
+        ]);
 
-        if (!analysisResponse.ok) {
-            const errText = await analysisResponse.text();
-            console.error("Analysis API Error:", analysisResponse.status, errText);
-            throw new Error(`Analysis API failed: ${analysisResponse.status}: ${errText}`);
-        }
-
-        const analysisData = await analysisResponse.json();
+        const analysisResponse = await analysisResult.response;
+        const analysisContent = analysisResponse.text();
         console.log("Analysis Response received");
-
-        if (!analysisData.choices || !analysisData.choices[0] || !analysisData.choices[0].message) {
-            throw new Error("Invalid analysis response format from Gateway");
-        }
-
-        const analysisContent = analysisData.choices[0].message.content;
 
         // Clean up JSON block
         const analysisJsonString = analysisContent.replace(/```json\s*/g, "").replace(/```/g, "").trim();
